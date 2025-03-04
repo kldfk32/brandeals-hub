@@ -31,47 +31,35 @@ const categories = [
   },
 ];
 
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.1
-    }
-  }
-};
-
 const item = {
-  hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, x: -20 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5 } }
 };
 
 const CategorySection = () => {
   return (
-    <section className="py-14 bg-secondary">
-      <div className="container-custom">
-        <div className="mb-10 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Browse by Category</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Find the best deals in your favorite categories, from fashion to food and everything in between.
-          </p>
-        </div>
-        
-        <motion.div 
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
-        >
-          {categories.map((category) => (
-            <motion.div key={category.title} variants={item}>
-              <CategoryCard {...category} />
-            </motion.div>
-          ))}
-        </motion.div>
+    <div className="h-full">
+      <div className="mb-6">
+        <h2 className="text-xl font-bold">Categories</h2>
+        <p className="text-muted-foreground text-sm">
+          Browse deals by category
+        </p>
       </div>
-    </section>
+      
+      <div className="space-y-4">
+        {categories.map((category) => (
+          <motion.div 
+            key={category.title} 
+            variants={item}
+            initial="hidden"
+            animate="show"
+            className="w-full"
+          >
+            <CategoryCard {...category} />
+          </motion.div>
+        ))}
+      </div>
+    </div>
   );
 };
 

@@ -3,12 +3,57 @@ import React, { useEffect } from "react";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturedDeals from "@/components/sections/FeaturedDeals";
 import CategorySection from "@/components/sections/CategorySection";
+import PromoCard from "@/components/ui/PromoCard";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-// Sample data for trending deals
-const trendingDeals = [
+// Sample data for all deals
+const allDeals = [
+  {
+    id: "1",
+    title: "25% Off Athletic Shoes",
+    brand: "Nike",
+    code: "NIKE25",
+    expiryDate: "2023-12-31",
+    discount: "25% OFF",
+    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
+    category: "Sport",
+    featured: true,
+  },
+  {
+    id: "2",
+    title: "Buy One Get One Free",
+    brand: "Subway",
+    code: "SUBWAYB1G1",
+    expiryDate: "2023-11-15",
+    discount: "BOGO",
+    image: "https://images.unsplash.com/photo-1509722747041-616f39b57569",
+    category: "Food",
+    featured: true,
+  },
+  {
+    id: "3",
+    title: "Free Shipping on $50+",
+    brand: "H&M",
+    code: "HMSHIP",
+    expiryDate: "2023-10-30",
+    discount: "FREE SHIPPING",
+    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
+    category: "Clothing",
+    featured: true,
+  },
+  {
+    id: "4",
+    title: "30% Off First Month",
+    brand: "Planet Fitness",
+    code: "FIT30",
+    expiryDate: "2023-12-01",
+    discount: "30% OFF",
+    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
+    category: "Health",
+    featured: true,
+  },
   {
     id: "5",
     title: "50% Off First Order",
@@ -80,56 +125,38 @@ const Index = () => {
         
         <FeaturedDeals />
         
-        <CategorySection />
-        
-        {/* Trending Deals Section */}
         <section className="py-14">
           <div className="container-custom">
-            <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">Trending Now</h2>
-                <p className="text-muted-foreground max-w-2xl">
-                  The most popular deals that shoppers are loving right now.
-                </p>
+            <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+              {/* Left sidebar with categories */}
+              <div className="lg:col-span-1">
+                <CategorySection />
               </div>
-              <a href="/trending" className="mt-4 md:mt-0 button-outline">
-                View All Trending
-              </a>
-            </div>
-            
-            <motion.div 
-              variants={container}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: "-100px" }}
-              className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
-              {trendingDeals.map((deal) => (
-                <motion.div key={deal.id} variants={item} className="flex">
-                  <div className="glass-card rounded-2xl p-4 flex flex-col md:flex-row w-full gap-4 transition-all duration-300 hover:shadow-card">
-                    <div className="h-16 w-16 md:h-20 md:w-20 rounded-xl overflow-hidden shrink-0">
-                      <img 
-                        src={deal.image} 
-                        alt={deal.title} 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="flex flex-col justify-center">
-                      <h3 className="font-semibold line-clamp-1 mb-1">{deal.title}</h3>
-                      <p className="text-sm text-muted-foreground">{deal.brand}</p>
-                      <div className="mt-2 flex items-center space-x-2">
-                        <span className="text-xs bg-primary/10 text-primary px-2 py-0.5 rounded-full">
-                          {deal.discount}
-                        </span>
-                        <span className="text-xs text-muted-foreground">
-                          Ends soon
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+              
+              {/* Main content area with all deals */}
+              <div className="lg:col-span-3">
+                <div className="mb-8">
+                  <h2 className="text-3xl font-bold mb-3">All Deals</h2>
+                  <p className="text-muted-foreground">
+                    Browse all available promo codes and discounts
+                  </p>
+                </div>
+                
+                <motion.div 
+                  variants={container}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, margin: "-100px" }}
+                  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+                >
+                  {allDeals.map((deal) => (
+                    <motion.div key={deal.id} variants={item}>
+                      <PromoCard {...deal} />
+                    </motion.div>
+                  ))}
                 </motion.div>
-              ))}
-            </motion.div>
+              </div>
+            </div>
           </div>
         </section>
         

@@ -13,20 +13,18 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, count, slug }
   return (
     <Link 
       to={`/category/${slug}`}
-      className="group block"
+      className="group flex items-center gap-3 p-2 rounded-lg hover:bg-secondary transition-colors"
     >
-      <div className="glass-card rounded-2xl p-1 overflow-hidden transition-all duration-300 hover:shadow-card">
-        <div className="aspect-square rounded-xl overflow-hidden relative">
-          <img 
-            src={image} 
-            alt={title} 
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col items-center justify-end p-6 text-center">
-            <h3 className="text-white text-xl font-semibold mb-1">{title}</h3>
-            <p className="text-white/80 text-sm">{count} deals</p>
-          </div>
-        </div>
+      <div className="h-12 w-12 rounded-lg overflow-hidden flex-shrink-0">
+        <img 
+          src={image} 
+          alt={title} 
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+      <div>
+        <h3 className="font-medium group-hover:text-primary transition-colors">{title}</h3>
+        <p className="text-xs text-muted-foreground">{count} deals</p>
       </div>
     </Link>
   );
