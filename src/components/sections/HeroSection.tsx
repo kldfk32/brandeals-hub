@@ -1,90 +1,64 @@
 
-import React from "react";
+import React, { useState } from "react";
+import { Search } from "lucide-react";
 import { motion } from "framer-motion";
-import { Globe, MapPin, Activity, Calendar, User, Search } from "lucide-react";
 
 const HeroSection = () => {
+  const [searchQuery, setSearchQuery] = useState("");
+  
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    console.log("Searching for:", searchQuery);
+  };
+
   return (
-    <section className="min-h-screen pt-24 pb-12 relative overflow-hidden flex flex-col justify-center items-center text-white">
-      {/* Background image of Earth */}
+    <section className="pt-32 pb-20 relative overflow-hidden">
+      {/* Background Elements */}
       <div className="absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute inset-0 bg-black/60"></div>
-        <img 
-          src="/lovable-uploads/3b1ede8d-c02d-40d9-b308-0c1411e49563.png" 
-          alt="Earth from space" 
-          className="w-full h-full object-cover"
-        />
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-primary/5 to-transparent"></div>
+        <div className="absolute -top-48 -right-48 w-96 h-96 rounded-full bg-primary/10 blur-3xl"></div>
+        <div className="absolute top-1/2 -left-48 w-96 h-96 rounded-full bg-primary/10 blur-3xl"></div>
       </div>
       
-      <div className="container-custom relative z-10 flex flex-col items-center">
-        {/* Main Heading */}
-        <motion.h1 
+      <div className="container-custom text-center relative z-10">
+        <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl md:text-6xl font-bold text-center mb-10"
+          transition={{ duration: 0.6 }}
+          className="max-w-3xl mx-auto"
         >
-          Discover the most engaging places
-        </motion.h1>
-        
-        {/* 3D Globe Button */}
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="bg-primary/90 hover:bg-primary text-white px-8 py-3 rounded-full flex items-center gap-2 mb-16"
-        >
-          <Globe size={18} />
-          Discover on 3D Globe
-        </motion.button>
-        
-        {/* Search Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full max-w-4xl bg-white rounded-full overflow-hidden flex items-center"
-        >
-          {/* Location */}
-          <div className="flex-1 flex items-center gap-2 p-4 pl-6 border-r border-gray-200">
-            <MapPin size={20} className="text-amber-500" />
-            <div>
-              <p className="text-xs text-gray-500">Location</p>
-              <p className="text-sm text-gray-800">Explore nearby destinations</p>
-            </div>
-          </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
+            Discover the Best <span className="text-primary">Deals</span> From Your Favorite Brands
+          </h1>
+          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Exclusive promo codes and discounts all in one place. Save big on your favorite products and services.
+          </p>
           
-          {/* Activity */}
-          <div className="flex-1 flex items-center gap-2 p-4 border-r border-gray-200">
-            <Activity size={20} className="text-amber-500" />
-            <div>
-              <p className="text-xs text-gray-500">Activity</p>
-              <p className="text-sm text-gray-800">All Activities</p>
+          <form onSubmit={handleSearch} className="max-w-xl mx-auto mb-12">
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search for brands, products, or deals..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-12 pr-6 py-4 rounded-full text-lg bg-white border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none shadow-subtle"
+              />
+              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 h-6 w-6 text-muted-foreground" />
             </div>
-          </div>
+          </form>
           
-          {/* When */}
-          <div className="flex-1 flex items-center gap-2 p-4 border-r border-gray-200">
-            <Calendar size={20} className="text-amber-500" />
-            <div>
-              <p className="text-xs text-gray-500">When</p>
-              <p className="text-sm text-gray-800">Choose a Date</p>
-            </div>
+          <div className="flex flex-wrap justify-center gap-2 items-center text-sm text-muted-foreground">
+            <span>Popular:</span>
+            {["Nike", "Food Delivery", "Fashion", "Travel", "Electronics"].map((term) => (
+              <button
+                key={term}
+                onClick={() => setSearchQuery(term)}
+                className="bg-secondary px-3 py-1 rounded-full hover:bg-primary/10 hover:text-primary transition-colors"
+              >
+                {term}
+              </button>
+            ))}
           </div>
-          
-          {/* Guests */}
-          <div className="flex items-center gap-2 p-4 border-r border-gray-200">
-            <User size={20} className="text-amber-500" />
-            <div>
-              <p className="text-xs text-gray-500">Guests</p>
-              <p className="text-sm text-gray-800">1 guest</p>
-            </div>
-          </div>
-          
-          {/* Search Button */}
-          <button className="p-5 bg-primary hover:bg-primary/90 transition-colors">
-            <Search size={24} className="text-white" />
-          </button>
         </motion.div>
       </div>
     </section>

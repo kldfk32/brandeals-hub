@@ -1,45 +1,174 @@
 
-import React from "react";
-import { Link } from "react-router-dom";
-import { User } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const categories = [
+  { name: "Sport", path: "/category/sport" },
+  { name: "Food", path: "/category/food" },
+  { name: "Clothing", path: "/category/clothing" },
+  { name: "Health", path: "/category/health" },
+];
 
 const Header = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+  }, [location]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Search functionality would go here
+    console.log("Searching for:", searchQuery);
+  };
+
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+        isScrolled 
+          ? "bg-white/80 backdrop-blur-md shadow-sm" 
+          : "bg-transparent"
+      }`}
+    >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <h1 className="text-2xl font-bold text-white">
-              2rism<span className="text-primary text-xs">★</span>
+            <h1 className="text-xl md:text-2xl font-bold text-primary">
+              BRANDEALS
             </h1>
           </Link>
 
-          {/* Navigation Links */}
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            {["Home", "Hotels", "Restaurants", "Tours", "Destinations", "Activities", "Contact"].map((item) => (
-              <Link 
-                key={item}
-                to={item === "Home" ? "/" : `/${item.toLowerCase()}`} 
-                className="text-white/80 hover:text-white transition-colors text-sm font-medium"
+            {categories.map((category) => (
+              <Link
+                key={category.name}
+                to={category.path}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  location.pathname === category.path 
+                    ? "text-primary" 
+                    : "text-foreground/80"
+                }`}
               >
-                {item}
+                {category.name}
               </Link>
             ))}
           </nav>
 
-          {/* User Account */}
-          <div className="flex items-center space-x-3">
-            <div className="text-right">
-              <p className="text-white/80 text-xs">Holla,</p>
-              <p className="text-white text-sm font-medium">Ales Nesetril</p>
-            </div>
-            <div className="h-8 w-8 rounded-full bg-white/20 overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1760&q=80" 
-                alt="User profile" 
-                className="h-full w-full object-cover"
+          {/* Desktop Search & Actions */}
+          <div className="hidden md:flex items-center space-x-4">
+            <form onSubmit={handleSearch} className="relative">
+              <input
+                type="text"
+                placeholder="Search deals..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-4 py-2 rounded-full text-sm bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none w-[180px] focus:w-[240px]"
               />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            </form>
+            <Link to="/account">
+              <User className="h-5 w-5 text-foreground/70 hover:text-primary transition-colors" />
+            </Link>
+            <Link to="/saved">
+              <ShoppingCart className="h-5 w-5 text-foreground/70 hover:text-primary transition-colors" />
+            </Link>
+          </div>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMobileMenu}
+            className="md:hidden flex items-center"
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+          >
+            {isMobileMenuOpen ? (
+              <X className="h-6 w-6 text-foreground" />
+            ) : (
+              <Menu className="h-6 w-6 text-foreground" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden fixed inset-0 z-40 transform transition-all duration-300 ease-in-out ${
+          isMobileMenuOpen 
+            ? "translate-x-0 opacity-100" 
+            : "translate-x-full opacity-0 pointer-events-none"
+        }`}
+      >
+        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={toggleMobileMenu}></div>
+        <div className="absolute right-0 top-0 bottom-0 w-[75%] max-w-sm bg-white shadow-lg transform transition-transform duration-300 ease-in-out flex flex-col">
+          <div className="p-6 space-y-6">
+            <form onSubmit={handleSearch} className="relative">
+              <input
+                type="text"
+                placeholder="Search deals..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 rounded-full text-sm bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
+              />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            </form>
+            
+            <div className="space-y-1">
+              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Categories</h3>
+              {categories.map((category) => (
+                <Link
+                  key={category.name}
+                  to={category.path}
+                  className={`block py-2 text-base font-medium transition-colors hover:text-primary ${
+                    location.pathname === category.path ? "text-primary" : ""
+                  }`}
+                >
+                  {category.name}
+                </Link>
+              ))}
+            </div>
+            
+            <div className="space-y-1">
+              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Account</h3>
+              <Link
+                to="/account"
+                className="flex items-center space-x-2 py-2 text-base font-medium"
+              >
+                <User className="h-5 w-5" />
+                <span>My Account</span>
+              </Link>
+              <Link
+                to="/saved"
+                className="flex items-center space-x-2 py-2 text-base font-medium"
+              >
+                <ShoppingCart className="h-5 w-5" />
+                <span>Saved Deals</span>
+              </Link>
+            </div>
+          </div>
+          
+          <div className="mt-auto border-t border-border p-6">
+            <div className="flex space-x-4">
+              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">About</Link>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">Contact</Link>
+              <Link to="/faq" className="text-sm text-muted-foreground hover:text-foreground">FAQ</Link>
             </div>
           </div>
         </div>
