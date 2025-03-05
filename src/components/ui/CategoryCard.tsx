@@ -24,7 +24,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, count, slug }
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex flex-col items-center justify-end p-6 text-center">
             <h3 className="text-white text-xl font-semibold mb-1">{title}</h3>
-            <p className="text-white/80 text-sm">{count} deals</p>
+            <p className="text-white/80 text-sm">{count} pasiūlymai</p>
           </div>
         </div>
       </div>
@@ -33,3 +33,4 @@ const CategoryCard: React.FC<CategoryCardProps> = ({ title, image, count, slug }
 };
 
 export default CategoryCard;
+

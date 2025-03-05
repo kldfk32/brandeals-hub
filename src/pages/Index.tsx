@@ -11,43 +11,43 @@ import Footer from "@/components/layout/Footer";
 const trendingDeals = [
   {
     id: "5",
-    title: "50% Off First Order",
+    title: "50% nuolaida pirmam užsakymui",
     brand: "DoorDash",
     code: "DASH50",
     expiryDate: "2023-11-20",
-    discount: "50% OFF",
+    discount: "50% NUOLAIDA",
     image: "https://images.unsplash.com/photo-1551326844-4df70f78d0e9",
-    category: "Food",
+    category: "Maistas",
   },
   {
     id: "6",
-    title: "15% Off Sitewide",
+    title: "15% nuolaida visai svetainei",
     brand: "Adidas",
     code: "ADIDAS15",
     expiryDate: "2023-12-15",
-    discount: "15% OFF",
+    discount: "15% NUOLAIDA",
     image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f",
-    category: "Sport",
+    category: "Sportas",
   },
   {
     id: "7",
-    title: "$20 Off Your First Vitamin Order",
+    title: "20€ nuolaida pirmam vitaminų užsakymui",
     brand: "Ritual",
     code: "RITUAL20",
     expiryDate: "2023-12-31",
-    discount: "$20 OFF",
+    discount: "20€ NUOLAIDA",
     image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de",
-    category: "Health",
+    category: "Sveikata",
   },
   {
     id: "8",
-    title: "Buy 2 Get 1 Free",
+    title: "Perkant 2, trečią gaukite nemokamai",
     brand: "Gap",
     code: "GAP2GET1",
     expiryDate: "2023-11-30",
-    discount: "B2G1",
+    discount: "3-as NEMOKAMAI",
     image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5",
-    category: "Clothing",
+    category: "Apranga",
   },
 ];
 
@@ -87,13 +87,13 @@ const Index = () => {
           <div className="container-custom">
             <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-3">Trending Now</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-3">Populiarūs pasiūlymai</h2>
                 <p className="text-muted-foreground max-w-2xl">
-                  The most popular deals that shoppers are loving right now.
+                  Populiariausi pasiūlymai, kuriuos pirkėjai šiuo metu mėgsta labiausiai.
                 </p>
               </div>
               <a href="/trending" className="mt-4 md:mt-0 button-outline">
-                View All Trending
+                Visi populiarūs pasiūlymai
               </a>
             </div>
             
@@ -122,7 +122,7 @@ const Index = () => {
                           {deal.discount}
                         </span>
                         <span className="text-xs text-muted-foreground">
-                          Ends soon
+                          Baigiasi netrukus
                         </span>
                       </div>
                     </div>
@@ -141,27 +141,27 @@ const Index = () => {
               <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-primary/20 blur-3xl"></div>
               
               <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Never Miss a Deal Again</h2>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">Nepražiopsokite nė vieno pasiūlymo</h2>
                 <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Sign up for our newsletter and get the latest deals delivered straight to your inbox.
+                  Užsiregistruokite mūsų naujienlaiškiui ir gaukite naujausius pasiūlymus tiesiai į savo pašto dėžutę.
                 </p>
                 
                 <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
                   <input 
                     type="email" 
-                    placeholder="Enter your email" 
+                    placeholder="Įveskite savo el. paštą" 
                     className="flex-1 px-4 py-3 rounded-lg bg-white border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
                   />
                   <button
                     type="submit"
                     className="button-primary px-6 py-3 whitespace-nowrap"
                   >
-                    Subscribe
+                    Prenumeruoti
                   </button>
                 </form>
                 
                 <p className="text-xs text-muted-foreground mt-4">
-                  By subscribing, you agree to our <a href="/terms" className="underline">Terms of Service</a> and <a href="/privacy" className="underline">Privacy Policy</a>.
+                  Prenumeruodami, jūs sutinkate su mūsų <a href="/terms" className="underline">Naudojimosi taisyklėmis</a> ir <a href="/privacy" className="underline">Privatumo politika</a>.
                 </p>
               </div>
             </div>
@@ -175,3 +175,4 @@ const Index = () => {
 };
 
 export default Index;
+

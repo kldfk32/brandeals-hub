@@ -33,26 +33,26 @@ const PromoCard: React.FC<PromoCardProps> = ({
     e.preventDefault();
     e.stopPropagation();
     navigator.clipboard.writeText(code);
-    toast.success("Promo code copied to clipboard!");
+    toast.success("Akcijos kodas nukopijuotas į iškarpinę!");
   };
   
   const handleSave = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     setIsSaved(!isSaved);
-    toast.success(isSaved ? "Removed from saved deals" : "Added to saved deals");
+    toast.success(isSaved ? "Pašalinta iš išsaugotų pasiūlymų" : "Pridėta prie išsaugotų pasiūlymų");
   };
   
   const handleShare = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     // Share functionality would go here
-    toast.success("Share dialog opened");
+    toast.success("Dalijimosi dialogas atidarytas");
   };
 
   const formatDate = (dateString: string) => {
     const date = new Date(dateString);
-    return new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
+    return new Intl.DateTimeFormat('lt-LT', { month: 'short', day: 'numeric', year: 'numeric' }).format(date);
   };
 
   return (
@@ -74,7 +74,7 @@ const PromoCard: React.FC<PromoCardProps> = ({
           {featured && (
             <div className="absolute top-3 left-3">
               <span className="bg-primary text-primary-foreground text-xs font-medium px-2.5 py-1 rounded-full">
-                Featured
+                Rekomenduojama
               </span>
             </div>
           )}
@@ -100,7 +100,7 @@ const PromoCard: React.FC<PromoCardProps> = ({
           
           <div className="flex items-center justify-between mt-4 mb-2">
             <div className="text-sm text-muted-foreground">
-              Expires: {formatDate(expiryDate)}
+              Galioja iki: {formatDate(expiryDate)}
             </div>
           </div>
           
@@ -119,7 +119,7 @@ const PromoCard: React.FC<PromoCardProps> = ({
                 className={`p-2 rounded-full ${
                   isSaved ? 'bg-primary/10 text-primary' : 'bg-secondary text-foreground hover:bg-primary/10'
                 } transition-colors`}
-                aria-label={isSaved ? "Remove from saved" : "Save deal"}
+                aria-label={isSaved ? "Pašalinti iš išsaugotų" : "Išsaugoti pasiūlymą"}
               >
                 <Heart size={18} className={isSaved ? "fill-primary" : ""} />
               </button>
@@ -127,7 +127,7 @@ const PromoCard: React.FC<PromoCardProps> = ({
               <button
                 onClick={handleShare}
                 className="p-2 rounded-full bg-secondary text-foreground hover:bg-primary/10 transition-colors"
-                aria-label="Share deal"
+                aria-label="Dalintis pasiūlymu"
               >
                 <Share size={18} />
               </button>
@@ -140,3 +140,4 @@ const PromoCard: React.FC<PromoCardProps> = ({
 };
 
 export default PromoCard;
+

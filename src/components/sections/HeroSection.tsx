@@ -8,7 +8,7 @@ const HeroSection = () => {
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Searching for:", searchQuery);
+    console.log("Ieškoma:", searchQuery);
   };
 
   return (
@@ -28,17 +28,17 @@ const HeroSection = () => {
           className="max-w-3xl mx-auto"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            Discover the Best <span className="text-primary">Deals</span> From Your Favorite Brands
+            Atraskite geriausias <span className="text-primary">nuolaidas</span> iš jūsų mėgstamų prekės ženklų
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Exclusive promo codes and discounts all in one place. Save big on your favorite products and services.
+            Išskirtiniai akcijų kodai ir nuolaidos vienoje vietoje. Taupykite perkant mėgstamus produktus ir paslaugas.
           </p>
           
           <form onSubmit={handleSearch} className="max-w-xl mx-auto mb-12">
             <div className="relative">
               <input
                 type="text"
-                placeholder="Search for brands, products, or deals..."
+                placeholder="Ieškoti prekių ženklų, produktų ar nuolaidų..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-12 pr-6 py-4 rounded-full text-lg bg-white border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none shadow-subtle"
@@ -48,8 +48,8 @@ const HeroSection = () => {
           </form>
           
           <div className="flex flex-wrap justify-center gap-2 items-center text-sm text-muted-foreground">
-            <span>Popular:</span>
-            {["Nike", "Food Delivery", "Fashion", "Travel", "Electronics"].map((term) => (
+            <span>Populiaru:</span>
+            {["Nike", "Maisto pristatymas", "Mada", "Kelionės", "Elektronika"].map((term) => (
               <button
                 key={term}
                 onClick={() => setSearchQuery(term)}
@@ -66,3 +66,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+

@@ -5,10 +5,10 @@ import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const categories = [
-  { name: "Sport", path: "/category/sport" },
-  { name: "Food", path: "/category/food" },
-  { name: "Clothing", path: "/category/clothing" },
-  { name: "Health", path: "/category/health" },
+  { name: "Sportas", path: "/category/sport" },
+  { name: "Maistas", path: "/category/food" },
+  { name: "Apranga", path: "/category/clothing" },
+  { name: "Sveikata", path: "/category/health" },
 ];
 
 const Header = () => {
@@ -36,7 +36,7 @@ const Header = () => {
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // Search functionality would go here
-    console.log("Searching for:", searchQuery);
+    console.log("Ieškoma:", searchQuery);
   };
 
   return (
@@ -52,7 +52,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <h1 className="text-xl md:text-2xl font-bold text-primary">
-              BRANDEALS
+              NUOLAIDOS
             </h1>
           </Link>
 
@@ -78,7 +78,7 @@ const Header = () => {
             <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
-                placeholder="Search deals..."
+                placeholder="Ieškoti nuolaidų..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pl-10 pr-4 py-2 rounded-full text-sm bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none w-[180px] focus:w-[240px]"
@@ -97,7 +97,7 @@ const Header = () => {
           <button
             onClick={toggleMobileMenu}
             className="md:hidden flex items-center"
-            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-label={isMobileMenuOpen ? "Uždaryti meniu" : "Atidaryti meniu"}
           >
             {isMobileMenuOpen ? (
               <X className="h-6 w-6 text-foreground" />
@@ -122,7 +122,7 @@ const Header = () => {
             <form onSubmit={handleSearch} className="relative">
               <input
                 type="text"
-                placeholder="Search deals..."
+                placeholder="Ieškoti nuolaidų..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full pl-10 pr-4 py-3 rounded-full text-sm bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
@@ -131,7 +131,7 @@ const Header = () => {
             </form>
             
             <div className="space-y-1">
-              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Categories</h3>
+              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Kategorijos</h3>
               {categories.map((category) => (
                 <Link
                   key={category.name}
@@ -146,29 +146,29 @@ const Header = () => {
             </div>
             
             <div className="space-y-1">
-              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Account</h3>
+              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Paskyra</h3>
               <Link
                 to="/account"
                 className="flex items-center space-x-2 py-2 text-base font-medium"
               >
                 <User className="h-5 w-5" />
-                <span>My Account</span>
+                <span>Mano paskyra</span>
               </Link>
               <Link
                 to="/saved"
                 className="flex items-center space-x-2 py-2 text-base font-medium"
               >
                 <ShoppingCart className="h-5 w-5" />
-                <span>Saved Deals</span>
+                <span>Išsaugotos nuolaidos</span>
               </Link>
             </div>
           </div>
           
           <div className="mt-auto border-t border-border p-6">
             <div className="flex space-x-4">
-              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">About</Link>
-              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">Contact</Link>
-              <Link to="/faq" className="text-sm text-muted-foreground hover:text-foreground">FAQ</Link>
+              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">Apie mus</Link>
+              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">Kontaktai</Link>
+              <Link to="/faq" className="text-sm text-muted-foreground hover:text-foreground">DUK</Link>
             </div>
           </div>
         </div>
@@ -178,3 +178,4 @@ const Header = () => {
 };
 
 export default Header;
+

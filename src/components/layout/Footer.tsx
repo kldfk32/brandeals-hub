@@ -7,31 +7,31 @@ const Footer = () => {
   
   const footerLinks = [
     {
-      title: "Categories",
+      title: "Kategorijos",
       links: [
-        { name: "Sport", path: "/category/sport" },
-        { name: "Food", path: "/category/food" },
-        { name: "Clothing", path: "/category/clothing" },
-        { name: "Health", path: "/category/health" },
+        { name: "Sportas", path: "/category/sport" },
+        { name: "Maistas", path: "/category/food" },
+        { name: "Apranga", path: "/category/clothing" },
+        { name: "Sveikata", path: "/category/health" },
       ],
     },
     {
-      title: "Company",
+      title: "Įmonė",
       links: [
-        { name: "About Us", path: "/about" },
-        { name: "Contact", path: "/contact" },
-        { name: "Careers", path: "/careers" },
-        { name: "Partners", path: "/partners" },
+        { name: "Apie mus", path: "/about" },
+        { name: "Kontaktai", path: "/contact" },
+        { name: "Karjera", path: "/careers" },
+        { name: "Partneriai", path: "/partners" },
       ],
     },
     {
-      title: "Support",
+      title: "Pagalba",
       links: [
-        { name: "Help Center", path: "/help" },
-        { name: "FAQ", path: "/faq" },
-        { name: "How It Works", path: "/how-it-works" },
-        { name: "Privacy Policy", path: "/privacy-policy" },
-        { name: "Terms of Service", path: "/terms-of-service" },
+        { name: "Pagalbos centras", path: "/help" },
+        { name: "DUK", path: "/faq" },
+        { name: "Kaip tai veikia", path: "/how-it-works" },
+        { name: "Privatumo politika", path: "/privacy-policy" },
+        { name: "Naudojimosi taisyklės", path: "/terms-of-service" },
       ],
     },
   ];
@@ -42,11 +42,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-2">
             <Link to="/" className="inline-block mb-4">
-              <h2 className="text-2xl font-bold text-primary">BRANDEALS</h2>
+              <h2 className="text-2xl font-bold text-primary">NUOLAIDOS</h2>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Discover the best deals and promo codes from your favorite brands and influencers,
-              all in one place.
+              Atraskite geriausias nuolaidas ir akcijų kodus iš jūsų mėgstamų prekių ženklų ir
+              influentserių, viskas vienoje vietoje.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
@@ -89,17 +89,17 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border/40">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-sm">
-              &copy; {currentYear} BRANDEALS. All rights reserved.
+              &copy; {currentYear} NUOLAIDOS. Visos teisės saugomos.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground">
-                Privacy Policy
+                Privatumo politika
               </Link>
               <Link to="/terms-of-service" className="text-sm text-muted-foreground hover:text-foreground">
-                Terms of Service
+                Naudojimosi taisyklės
               </Link>
               <Link to="/cookie-policy" className="text-sm text-muted-foreground hover:text-foreground">
-                Cookie Policy
+                Slapukų politika
               </Link>
             </div>
           </div>
@@ -110,3 +110,4 @@ const Footer = () => {
 };
 
 export default Footer;
+
