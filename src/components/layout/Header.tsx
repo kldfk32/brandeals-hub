@@ -3,12 +3,13 @@ import { Link, useLocation } from "react-router-dom";
 import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const categories = [
-  { name: "Sportas", path: "/category/sport" },
-  { name: "Maistas", path: "/category/food" },
-  { name: "Apranga", path: "/category/clothing" },
-  { name: "Sveikata", path: "/category/health" },
-];
+// Removing the categories array
+// const categories = [
+//   { name: "Sportas", path: "/category/sport" },
+//   { name: "Maistas", path: "/category/food" },
+//   { name: "Apranga", path: "/category/clothing" },
+//   { name: "Sveikata", path: "/category/health" },
+// ];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,21 +56,9 @@ const Header = () => {
             </h1>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Removed categories */}
           <nav className="hidden md:flex items-center space-x-8">
-            {categories.map((category) => (
-              <Link
-                key={category.name}
-                to={category.path}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location.pathname === category.path 
-                    ? "text-primary" 
-                    : "text-foreground/80"
-                }`}
-              >
-                {category.name}
-              </Link>
-            ))}
+            {/* Categories have been removed */}
           </nav>
 
           {/* Desktop Search & Actions */}
@@ -129,20 +118,7 @@ const Header = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </form>
             
-            <div className="space-y-1">
-              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Kategorijos</h3>
-              {categories.map((category) => (
-                <Link
-                  key={category.name}
-                  to={category.path}
-                  className={`block py-2 text-base font-medium transition-colors hover:text-primary ${
-                    location.pathname === category.path ? "text-primary" : ""
-                  }`}
-                >
-                  {category.name}
-                </Link>
-              ))}
-            </div>
+            {/* Removing categories section from mobile menu */}
             
             <div className="space-y-1">
               <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Paskyra</h3>
