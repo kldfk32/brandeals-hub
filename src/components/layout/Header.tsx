@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Search, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const location = useLocation();
 
@@ -19,17 +19,18 @@ const Header = () => {
   }, []);
 
   useEffect(() => {
-    setIsMobileMenuOpen(false);
+    setIsSearchVisible(false);
   }, [location]);
 
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
+  const toggleSearch = () => {
+    setIsSearchVisible(!isSearchVisible);
   };
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     // Search functionality would go here
     console.log("Ieškoma:", searchQuery);
+    setIsSearchVisible(false);
   };
 
   return (
@@ -49,12 +50,12 @@ const Header = () => {
             </h1>
           </Link>
 
-          {/* Desktop Navigation - Removed categories */}
+          {/* Desktop Navigation - Empty */}
           <nav className="hidden md:flex items-center space-x-8">
             {/* Categories have been removed */}
           </nav>
 
-          {/* Desktop Search & Actions - Removed account icon */}
+          {/* Desktop Search & Actions */}
           <div className="hidden md:flex items-center space-x-4">
             <form onSubmit={handleSearch} className="relative">
               <input
@@ -71,65 +72,43 @@ const Header = () => {
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={toggleMobileMenu}
-            className="md:hidden flex items-center"
-            aria-label={isMobileMenuOpen ? "Uždaryti meniu" : "Atidaryti meniu"}
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
-            ) : (
-              <Menu className="h-6 w-6 text-foreground" />
-            )}
-          </button>
+          {/* Mobile Search & Cart */}
+          <div className="md:hidden flex items-center space-x-3">
+            <button 
+              onClick={toggleSearch} 
+              className="p-2 rounded-full hover:bg-secondary transition-colors"
+              aria-label="Paieška"
+            >
+              <Search className="h-5 w-5 text-foreground" />
+            </button>
+            <Link to="/saved" className="p-2 rounded-full hover:bg-secondary transition-colors">
+              <ShoppingCart className="h-5 w-5 text-foreground" />
+            </Link>
+          </div>
         </div>
-      </div>
-
-      {/* Mobile Menu - Removed account section */}
-      <div
-        className={`md:hidden fixed inset-0 z-40 transform transition-all duration-300 ease-in-out ${
-          isMobileMenuOpen 
-            ? "translate-x-0 opacity-100" 
-            : "translate-x-full opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" onClick={toggleMobileMenu}></div>
-        <div className="absolute right-0 top-0 bottom-0 w-[75%] max-w-sm bg-white shadow-lg transform transition-transform duration-300 ease-in-out flex flex-col">
-          <div className="p-6 space-y-6">
-            <form onSubmit={handleSearch} className="relative">
-              <input
-                type="text"
-                placeholder="Ieškoti nuolaidų..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 rounded-full text-sm bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            </form>
-            
-            {/* Removed categories section */}
-            
-            {/* Removed account section */}
-            <div className="space-y-1">
-              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Nuolaidos</h3>
-              <Link
-                to="/saved"
-                className="flex items-center space-x-2 py-2 text-base font-medium"
-              >
-                <ShoppingCart className="h-5 w-5" />
-                <span>Išsaugotos nuolaidos</span>
-              </Link>
-            </div>
-          </div>
-          
-          <div className="mt-auto border-t border-border p-6">
-            <div className="flex space-x-4">
-              <Link to="/about" className="text-sm text-muted-foreground hover:text-foreground">Apie mus</Link>
-              <Link to="/contact" className="text-sm text-muted-foreground hover:text-foreground">Kontaktai</Link>
-              <Link to="/faq" className="text-sm text-muted-foreground hover:text-foreground">DUK</Link>
-            </div>
-          </div>
+        
+        {/* Mobile Search Bar - Collapsible */}
+        <div 
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isSearchVisible ? 'max-h-20 opacity-100 py-3' : 'max-h-0 opacity-0 py-0'
+          }`}
+        >
+          <form onSubmit={handleSearch} className="relative">
+            <input
+              type="text"
+              placeholder="Ieškoti nuolaidų..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="w-full pl-10 pr-4 py-3 rounded-full text-sm bg-secondary border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
+            />
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <button
+              type="submit"
+              className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-primary text-white p-1 rounded-full"
+            >
+              <Search className="h-4 w-4" />
+            </button>
+          </form>
         </div>
       </div>
     </header>
