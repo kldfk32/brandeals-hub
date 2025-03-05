@@ -28,7 +28,7 @@ const HeroSection = () => {
           className="max-w-3xl mx-auto"
         >
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6 tracking-tight">
-            Atraskite geriausias <span className="text-primary">nuolaidas</span> iš jūsų mėgstamų prekės ženklų
+            Atraskite geriausias <span className="text-primary">nuolaidas</span> iš jūsų mėgstamiausių prekės ženklų
           </h1>
           <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
             Išskirtiniai akcijų kodai ir nuolaidos vienoje vietoje. Taupykite perkant mėgstamus produktus ir paslaugas.

@@ -45,7 +45,7 @@ const Footer = () => {
               <h2 className="text-2xl font-bold text-primary">BRANDEALS</h2>
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
-              Atraskite geriausias nuolaidas ir akcijų kodus iš jūsų mėgstamų prekių ženklų ir
+              Atraskite geriausias nuolaidas ir akcijų kodus iš jūsų mėgstamiausių prekių ženklų ir
               influentserių, viskas vienoje vietoje.
             </p>
             <div className="flex space-x-4">
