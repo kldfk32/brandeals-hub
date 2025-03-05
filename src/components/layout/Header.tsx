@@ -1,15 +1,8 @@
+
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-// Removing the categories array
-// const categories = [
-//   { name: "Sportas", path: "/category/sport" },
-//   { name: "Maistas", path: "/category/food" },
-//   { name: "Apranga", path: "/category/clothing" },
-//   { name: "Sveikata", path: "/category/health" },
-// ];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,7 +54,7 @@ const Header = () => {
             {/* Categories have been removed */}
           </nav>
 
-          {/* Desktop Search & Actions */}
+          {/* Desktop Search & Actions - Removed account icon */}
           <div className="hidden md:flex items-center space-x-4">
             <form onSubmit={handleSearch} className="relative">
               <input
@@ -73,9 +66,6 @@ const Header = () => {
               />
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </form>
-            <Link to="/account">
-              <User className="h-5 w-5 text-foreground/70 hover:text-primary transition-colors" />
-            </Link>
             <Link to="/saved">
               <ShoppingCart className="h-5 w-5 text-foreground/70 hover:text-primary transition-colors" />
             </Link>
@@ -96,7 +86,7 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - Removed account section */}
       <div
         className={`md:hidden fixed inset-0 z-40 transform transition-all duration-300 ease-in-out ${
           isMobileMenuOpen 
@@ -118,17 +108,11 @@ const Header = () => {
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             </form>
             
-            {/* Removing categories section from mobile menu */}
+            {/* Removed categories section */}
             
+            {/* Removed account section */}
             <div className="space-y-1">
-              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Paskyra</h3>
-              <Link
-                to="/account"
-                className="flex items-center space-x-2 py-2 text-base font-medium"
-              >
-                <User className="h-5 w-5" />
-                <span>Mano paskyra</span>
-              </Link>
+              <h3 className="text-xs uppercase tracking-wider text-muted-foreground mb-2">Nuolaidos</h3>
               <Link
                 to="/saved"
                 className="flex items-center space-x-2 py-2 text-base font-medium"
