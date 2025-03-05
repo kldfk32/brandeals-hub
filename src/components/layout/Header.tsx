@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Search, User, ShoppingCart, Menu, X } from "lucide-react";
@@ -52,7 +51,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <h1 className="text-xl md:text-2xl font-bold text-primary">
-              NUOLAIDOS
+              BRANDEALS
             </h1>
           </Link>
 
@@ -178,4 +177,3 @@ const Header = () => {
 };
 
 export default Header;
-
