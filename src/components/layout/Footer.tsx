@@ -28,7 +28,6 @@ const Footer = () => {
     {
       title: "Pagalba",
       links: [
-        { name: "Pagalbos centras", path: "/help" },
         { name: "DUK", path: "/faq" },
         { name: "Kaip tai veikia", path: "/how-it-works" },
         { name: "Privatumo politika", path: "/privacy-policy" },
