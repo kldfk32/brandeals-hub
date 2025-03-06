@@ -1,4 +1,3 @@
-
 export interface Deal {
   id: string;
   title: string;
@@ -10,6 +9,7 @@ export interface Deal {
   category: string;
   featured?: boolean;
   description?: string;
+  dateAdded?: string; // Adding dateAdded field for sorting newest deals
 }
 
 export const deals: Deal[] = [
@@ -24,7 +24,8 @@ export const deals: Deal[] = [
     image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
     category: "Sportas",
     featured: true,
-    description: "Sutaupykite 25% perkant naujausius Nike sportinius batelius. Galioja internetinėje parduotuvėje ir fizinėse parduotuvėse."
+    description: "Sutaupykite 25% perkant naujausius Nike sportinius batelius. Galioja internetinėje parduotuvėje ir fizinėse parduotuvėse.",
+    dateAdded: "2023-09-15"
   },
   {
     id: "2",
@@ -36,7 +37,8 @@ export const deals: Deal[] = [
     image: "https://images.unsplash.com/photo-1509722747041-616f39b57569",
     category: "Maistas",
     featured: true,
-    description: "Pirkite bet kurį 30 cm sumuštinį ir gaukite tokį patį nemokamai. Tik dalyvaujančiose Subway parduotuvėse."
+    description: "Pirkite bet kurį 30 cm sumuštinį ir gaukite tokį patį nemokamai. Tik dalyvaujančiose Subway parduotuvėse.",
+    dateAdded: "2023-08-20"
   },
   {
     id: "3",
@@ -48,7 +50,8 @@ export const deals: Deal[] = [
     image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
     category: "Apranga",
     featured: true,
-    description: "Gaukite nemokamą pristatymą visiems užsakymams virš 50€. Galioja visoje Lietuvoje."
+    description: "Gaukite nemokamą pristatymą visiems užsakymams virš 50€. Galioja visoje Lietuvoje.",
+    dateAdded: "2023-08-10"
   },
   {
     id: "4",
@@ -60,7 +63,8 @@ export const deals: Deal[] = [
     image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
     category: "Sveikata",
     featured: true,
-    description: "Sutaupykite 30% nuo pirmojo mėnesio narystės mokesčio bet kuriame Planet Fitness sporto klube."
+    description: "Sutaupykite 30% nuo pirmojo mėnesio narystės mokesčio bet kuriame Planet Fitness sporto klube.",
+    dateAdded: "2023-07-05"
   },
   
   // Trending deals
@@ -73,7 +77,8 @@ export const deals: Deal[] = [
     discount: "50% NUOLAIDA",
     image: "https://images.unsplash.com/photo-1551326844-4df70f78d0e9",
     category: "Maistas",
-    description: "Gaukite 50% nuolaidą pirmam užsakymui per DoorDash programėlę, iki 15€."
+    description: "Gaukite 50% nuolaidą pirmam užsakymui per DoorDash programėlę, iki 15€.",
+    dateAdded: "2023-09-20"
   },
   {
     id: "6",
@@ -84,7 +89,8 @@ export const deals: Deal[] = [
     discount: "15% NUOLAIDA",
     image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f",
     category: "Sportas",
-    description: "Gaukite 15% nuolaidą visoms prekėms Adidas internetinėje parduotuvėje. Neleidžiama derinti su kitomis akcijomis."
+    description: "Gaukite 15% nuolaidą visoms prekėms Adidas internetinėje parduotuvėje. Neleidžiama derinti su kitomis akcijomis.",
+    dateAdded: "2023-09-18"
   },
   {
     id: "7",
@@ -95,7 +101,8 @@ export const deals: Deal[] = [
     discount: "20€ NUOLAIDA",
     image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de",
     category: "Sveikata",
-    description: "Sutaupykite 20€ nuo pirmojo vitaminų užsakymo virš 50€."
+    description: "Sutaupykite 20€ nuo pirmojo vitaminų užsakymo virš 50€.",
+    dateAdded: "2023-09-25"
   },
   {
     id: "8",
@@ -106,7 +113,8 @@ export const deals: Deal[] = [
     discount: "3-as NEMOKAMAI",
     image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5",
     category: "Apranga",
-    description: "Pirkite bet kuriuos du drabužius ir trečią (mažiausios vertės) gaukite nemokamai."
+    description: "Pirkite bet kuriuos du drabužius ir trečią (mažiausios vertės) gaukite nemokamai.",
+    dateAdded: "2023-09-28"
   },
   
   // Gaming deals
@@ -119,7 +127,8 @@ export const deals: Deal[] = [
     discount: "20% NUOLAIDA",
     image: "https://images.unsplash.com/photo-1612287230202-1ff1d85d1bdf",
     category: "Žaidimai",
-    description: "Gaukite 20% nuolaidą pasirinktinai grupei žaidimų Steam platformoje."
+    description: "Gaukite 20% nuolaidą pasirinktinai grupei žaidimų Steam platformoje.",
+    dateAdded: "2023-09-10"
   },
   {
     id: "10",
@@ -130,7 +139,8 @@ export const deals: Deal[] = [
     discount: "50€ NUOLAIDA",
     image: "https://images.unsplash.com/photo-1606813907291-d86efa9b94db",
     category: "Žaidimai",
-    description: "Sutaupykite 50€ įsigydami PlayStation 5 konsolę dalyvaujančiuose elektronikos parduotuvėse."
+    description: "Sutaupykite 50€ įsigydami PlayStation 5 konsolę dalyvaujančiuose elektronikos parduotuvėse.",
+    dateAdded: "2023-09-05"
   },
   {
     id: "11",
@@ -141,7 +151,8 @@ export const deals: Deal[] = [
     discount: "TIK 1€",
     image: "https://images.unsplash.com/photo-1621259182978-fbf93132d53d",
     category: "Žaidimai",
-    description: "Gaukite 3 mėnesius Xbox Game Pass Ultimate narystės už 1€. Tik naujiems nariams."
+    description: "Gaukite 3 mėnesius Xbox Game Pass Ultimate narystės už 1€. Tik naujiems nariams.",
+    dateAdded: "2023-08-25"
   },
   
   // Finance deals
@@ -154,7 +165,8 @@ export const deals: Deal[] = [
     discount: "100€ PREMIJA",
     image: "https://images.unsplash.com/photo-1553729459-efe14ef6055d",
     category: "Finansai",
-    description: "Gaukite 100€ premiją atidarę naują Swedbank banko sąskaitą ir atlikę bent 3 mokėjimus per pirmąjį mėnesį."
+    description: "Gaukite 100€ premiją atidarę naują Swedbank banko sąskaitą ir atlikę bent 3 mokėjimus per pirmąjį mėnesį.",
+    dateAdded: "2023-08-15"
   },
   {
     id: "13",
@@ -165,7 +177,8 @@ export const deals: Deal[] = [
     discount: "0% KOMISINIAI",
     image: "https://images.unsplash.com/photo-1623118732198-4e0c87c64f3f",
     category: "Finansai",
-    description: "Prekiaukite akcijomis ir ETF be komisinio mokesčio pirmąjį narystės metus."
+    description: "Prekiaukite akcijomis ir ETF be komisinio mokesčio pirmąjį narystės metus.",
+    dateAdded: "2023-08-05"
   },
   {
     id: "14",
@@ -176,7 +189,58 @@ export const deals: Deal[] = [
     discount: "20% NUOLAIDA",
     image: "https://images.unsplash.com/photo-1565372595018-6c8db5477e24",
     category: "Finansai",
-    description: "Sutaupykite 20% nuo metinės namų arba kelionių draudimo įmokos."
+    description: "Sutaupykite 20% nuo metinės namų arba kelionių draudimo įmokos.",
+    dateAdded: "2023-07-20"
+  },
+
+  // New deals
+  {
+    id: "15",
+    title: "35% nuolaida visoms knygoms",
+    brand: "Pegasas",
+    code: "PEGASAS35",
+    expiryDate: "2023-12-15",
+    discount: "35% NUOLAIDA",
+    image: "https://images.unsplash.com/photo-1544947950-fa07a98d237f",
+    category: "Knygos",
+    description: "Gaukite 35% nuolaidą visoms knygoms Pegaso knygynuose ir internetinėje parduotuvėje.",
+    dateAdded: "2023-10-01"
+  },
+  {
+    id: "16",
+    title: "Nemokamas mėnuo muzikos platformoje",
+    brand: "Spotify",
+    code: "SPOTIFY1",
+    expiryDate: "2023-11-30",
+    discount: "1 MĖNUO NEMOKAMAI",
+    image: "https://images.unsplash.com/photo-1614680376573-df3480f0c6ff",
+    category: "Pramogos",
+    description: "Gaukite nemokamą Spotify Premium narystės mėnesį. Taikoma tik naujiems nariams.",
+    dateAdded: "2023-10-02"
+  },
+  {
+    id: "17",
+    title: "25% nuolaida baldams",
+    brand: "IKEA",
+    code: "IKEA25",
+    expiryDate: "2023-12-31",
+    discount: "25% NUOLAIDA",
+    image: "https://images.unsplash.com/photo-1605371924599-2d0365da1ae0",
+    category: "Namai",
+    description: "Sutaupykite 25% perkant pasirinktus baldus IKEA parduotuvėse ir internetu.",
+    dateAdded: "2023-10-03"
+  },
+  {
+    id: "18",
+    title: "10€ nuolaida pirmam užsakymui",
+    brand: "Wolt",
+    code: "WOLT10",
+    expiryDate: "2023-11-20",
+    discount: "10€ NUOLAIDA",
+    image: "https://images.unsplash.com/photo-1526367790999-0150786686a2",
+    category: "Maistas",
+    description: "Gaukite 10€ nuolaidą pirmam užsakymui per Wolt programėlę.",
+    dateAdded: "2023-10-04"
   }
 ];
 
@@ -232,4 +296,15 @@ export const getFeaturedDeals = () => {
 
 export const getTrendingDeals = () => {
   return deals.slice(4, 8);
+};
+
+export const getNewestDeals = () => {
+  // Sort deals by dateAdded (newest first) and return the 4 newest
+  return [...deals]
+    .sort((a, b) => {
+      const dateA = a.dateAdded ? new Date(a.dateAdded).getTime() : 0;
+      const dateB = b.dateAdded ? new Date(b.dateAdded).getTime() : 0;
+      return dateB - dateA;
+    })
+    .slice(0, 4);
 };
