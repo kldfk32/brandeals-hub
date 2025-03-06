@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -9,10 +8,12 @@ const Footer = () => {
     {
       title: "Kategorijos",
       links: [
-        { name: "Sportas", path: "/category/sport" },
-        { name: "Maistas", path: "/category/food" },
-        { name: "Apranga", path: "/category/clothing" },
-        { name: "Sveikata", path: "/category/health" },
+        { name: "Sportas", path: "/category/sportas" },
+        { name: "Maistas", path: "/category/maistas" },
+        { name: "Apranga", path: "/category/apranga" },
+        { name: "Sveikata", path: "/category/sveikata" },
+        { name: "Žaidimai", path: "/category/zaidimai" },
+        { name: "Finansai", path: "/category/finansai" },
       ],
     },
     {
@@ -110,4 +111,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

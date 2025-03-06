@@ -56,19 +56,6 @@ const Header = () => {
             </h1>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
-            <Link to="/category/zaidimai" className="text-foreground/80 hover:text-primary transition-colors">
-              Žaidimai
-            </Link>
-            <Link to="/category/finansai" className="text-foreground/80 hover:text-primary transition-colors">
-              Finansai
-            </Link>
-            <Link to="/about" className="text-foreground/80 hover:text-primary transition-colors">
-              Apie mus
-            </Link>
-          </nav>
-
           {/* Desktop Search & Actions */}
           <div className="hidden md:flex items-center space-x-4">
             <form onSubmit={handleSearch} className="relative">
