@@ -2,34 +2,7 @@
 import React from "react";
 import CategoryCard from "../ui/CategoryCard";
 import { motion } from "framer-motion";
-
-// Sample data for categories
-const categories = [
-  {
-    title: "Sportas",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
-    count: 42,
-    slug: "sport",
-  },
-  {
-    title: "Maistas",
-    image: "https://images.unsplash.com/photo-1504674900247-0877df9cc836",
-    count: 56,
-    slug: "food",
-  },
-  {
-    title: "Apranga",
-    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
-    count: 78,
-    slug: "clothing",
-  },
-  {
-    title: "Sveikata",
-    image: "https://images.unsplash.com/photo-1505576399279-565b52d4ac71",
-    count: 35,
-    slug: "health",
-  },
-];
+import { categories } from "@/data/deals";
 
 const container = {
   hidden: { opacity: 0 },
@@ -62,7 +35,7 @@ const CategorySection = () => {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid grid-cols-2 md:grid-cols-4 gap-6"
+          className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6"
         >
           {categories.map((category) => (
             <motion.div key={category.title} variants={item}>
@@ -76,4 +49,3 @@ const CategorySection = () => {
 };
 
 export default CategorySection;
-

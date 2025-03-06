@@ -1,55 +1,13 @@
 
 import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturedDeals from "@/components/sections/FeaturedDeals";
 import CategorySection from "@/components/sections/CategorySection";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-
-// Sample data for trending deals
-const trendingDeals = [
-  {
-    id: "5",
-    title: "50% nuolaida pirmam užsakymui",
-    brand: "DoorDash",
-    code: "DASH50",
-    expiryDate: "2023-11-20",
-    discount: "50% NUOLAIDA",
-    image: "https://images.unsplash.com/photo-1551326844-4df70f78d0e9",
-    category: "Maistas",
-  },
-  {
-    id: "6",
-    title: "15% nuolaida visai svetainei",
-    brand: "Adidas",
-    code: "ADIDAS15",
-    expiryDate: "2023-12-15",
-    discount: "15% NUOLAIDA",
-    image: "https://images.unsplash.com/photo-1518002171953-a080ee817e1f",
-    category: "Sportas",
-  },
-  {
-    id: "7",
-    title: "20€ nuolaida pirmam vitaminų užsakymui",
-    brand: "Ritual",
-    code: "RITUAL20",
-    expiryDate: "2023-12-31",
-    discount: "20€ NUOLAIDA",
-    image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de",
-    category: "Sveikata",
-  },
-  {
-    id: "8",
-    title: "Perkant 2, trečią gaukite nemokamai",
-    brand: "Gap",
-    code: "GAP2GET1",
-    expiryDate: "2023-11-30",
-    discount: "3-as NEMOKAMAI",
-    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5",
-    category: "Apranga",
-  },
-];
+import { getTrendingDeals } from "@/data/deals";
 
 const container = {
   hidden: { opacity: 0 },
@@ -67,6 +25,8 @@ const item = {
 };
 
 const Index = () => {
+  const trendingDeals = getTrendingDeals();
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -92,9 +52,9 @@ const Index = () => {
                   Populiariausi pasiūlymai, kuriuos pirkėjai šiuo metu mėgsta labiausiai.
                 </p>
               </div>
-              <a href="/trending" className="mt-4 md:mt-0 button-outline">
+              <Link to="/trending" className="mt-4 md:mt-0 button-outline">
                 Visi populiarūs pasiūlymai
-              </a>
+              </Link>
             </div>
             
             <motion.div 
@@ -175,4 +135,3 @@ const Index = () => {
 };
 
 export default Index;
-

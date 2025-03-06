@@ -1,55 +1,9 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import PromoCard from "../ui/PromoCard";
 import { motion } from "framer-motion";
-
-// Sample data for featured deals
-const featuredDeals = [
-  {
-    id: "1",
-    title: "25% nuolaida sporto bateliams",
-    brand: "Nike",
-    code: "NIKE25",
-    expiryDate: "2023-12-31",
-    discount: "25% NUOLAIDA",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff",
-    category: "Sportas",
-    featured: true,
-  },
-  {
-    id: "2",
-    title: "Pirk vieną, gauk kitą nemokamai",
-    brand: "Subway",
-    code: "SUBWAYB1G1",
-    expiryDate: "2023-11-15",
-    discount: "2UŽ1",
-    image: "https://images.unsplash.com/photo-1509722747041-616f39b57569",
-    category: "Maistas",
-    featured: true,
-  },
-  {
-    id: "3",
-    title: "Nemokamas pristatymas virš 50€",
-    brand: "H&M",
-    code: "HMSHIP",
-    expiryDate: "2023-10-30",
-    discount: "NEMOKAMAS PRISTATYMAS",
-    image: "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f",
-    category: "Apranga",
-    featured: true,
-  },
-  {
-    id: "4",
-    title: "30% nuolaida pirmam mėnesiui",
-    brand: "Planet Fitness",
-    code: "FIT30",
-    expiryDate: "2023-12-01",
-    discount: "30% NUOLAIDA",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438",
-    category: "Sveikata",
-    featured: true,
-  },
-];
+import { getFeaturedDeals } from "@/data/deals";
 
 const container = {
   hidden: { opacity: 0 },
@@ -67,6 +21,8 @@ const item = {
 };
 
 const FeaturedDeals = () => {
+  const featuredDeals = getFeaturedDeals();
+  
   return (
     <section className="py-14">
       <div className="container-custom">
@@ -77,9 +33,9 @@ const FeaturedDeals = () => {
               Kruopščiai atrinkti pasiūlymai iš geriausių prekės ženklų, specialiai sukurti maksimaliam taupymui.
             </p>
           </div>
-          <a href="/deals" className="mt-4 md:mt-0 button-outline">
+          <Link to="/deals" className="mt-4 md:mt-0 button-outline">
             Visi pasiūlymai
-          </a>
+          </Link>
         </div>
         
         <motion.div 
@@ -101,4 +57,3 @@ const FeaturedDeals = () => {
 };
 
 export default FeaturedDeals;
-
