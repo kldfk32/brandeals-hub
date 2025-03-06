@@ -76,33 +76,33 @@ const Deal = () => {
             <span className="font-medium">{deal.title}</span>
           </div>
           
-          {/* Deal Detail Section */}
-          <div className="glass-card bg-white/95 rounded-2xl overflow-hidden shadow-elevated mt-8">
+          {/* Deal Detail Section - FIXED: Changed layout for better image/content separation */}
+          <div className="glass-card bg-white/95 rounded-2xl overflow-hidden shadow-elevated">
             <div className="flex flex-col lg:flex-row">
-              {/* Image */}
-              <div className="lg:w-2/5 relative bg-secondary">
-                <div className="aspect-[4/3] lg:h-full">
+              {/* Image Container - Fixed position and size */}
+              <div className="lg:w-2/5 relative bg-secondary h-auto">
+                <div className="aspect-[4/3] relative overflow-hidden">
                   <img 
                     src={deal.image} 
                     alt={deal.title} 
                     className="w-full h-full object-cover"
                   />
-                </div>
-                <div className="absolute top-4 right-4">
-                  <span className="bg-black/70 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm">
-                    {deal.category}
-                  </span>
+                  <div className="absolute top-4 right-4 z-10">
+                    <span className="bg-black/70 text-white text-xs font-medium px-2.5 py-1 rounded-full backdrop-blur-sm">
+                      {deal.category}
+                    </span>
+                  </div>
                 </div>
               </div>
               
-              {/* Content */}
-              <div className="lg:w-3/5 p-6 md:p-10">
+              {/* Content - Fixed padding and positioning */}
+              <div className="lg:w-3/5 p-6 md:p-8 relative">
                 <div className="mb-4">
                   <h3 className="text-lg font-medium text-muted-foreground mb-2">{deal.brand}</h3>
-                  <h1 className="text-3xl md:text-4xl font-bold">{deal.title}</h1>
+                  <h1 className="text-2xl md:text-3xl font-bold">{deal.title}</h1>
                 </div>
                 
-                <div className="flex flex-wrap gap-4 my-6">
+                <div className="flex flex-wrap gap-4 my-5">
                   <div className="flex items-center text-sm">
                     <Calendar className="h-4 w-4 mr-2 text-primary" />
                     <span>
@@ -118,14 +118,14 @@ const Deal = () => {
                 </div>
                 
                 {deal.description && (
-                  <div className="my-6">
+                  <div className="my-5">
                     <h3 className="text-lg font-semibold mb-3">Pasiūlymo aprašymas</h3>
                     <p className="text-muted-foreground">{deal.description}</p>
                   </div>
                 )}
                 
                 {/* Promo Code Section */}
-                <div className="bg-secondary/70 p-5 rounded-lg mt-8">
+                <div className="bg-secondary/70 p-5 rounded-lg mt-6">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                     <div>
                       <h3 className="text-sm font-medium text-muted-foreground mb-1">Akcijos kodas:</h3>
@@ -149,7 +149,7 @@ const Deal = () => {
                 </div>
                 
                 {/* Terms Section */}
-                <div className="mt-8">
+                <div className="mt-6">
                   <h3 className="text-lg font-semibold mb-3">Naudojimosi sąlygos</h3>
                   <ul className="text-sm space-y-2 text-muted-foreground list-disc list-inside">
                     <li>Pasiūlymas galioja iki {formatDate(deal.expiryDate)}</li>
