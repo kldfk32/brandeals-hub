@@ -45,7 +45,7 @@ const Footer = () => {
             </Link>
             <p className="text-muted-foreground mb-6 max-w-md">
               Atraskite geriausias nuolaidas ir akcijų kodus iš jūsų mėgstamiausių prekių ženklų ir
-              influentserių, viskas vienoje vietoje.
+              influencerių, viskas vienoje vietoje.
             </p>
             <p className="text-muted-foreground mb-6">
               El. paštas: <a href="mailto:info@brandeals.lt" className="text-primary hover:underline">info@brandeals.lt</a>

@@ -123,7 +123,7 @@ const Index = () => {
                 </form>
                 
                 <p className="text-xs text-muted-foreground mt-4">
-                  Prenumeruodami, jūs sutinkate su mūsų <a href="/terms" className="underline">Naudojimosi taisyklėmis</a> ir <a href="/privacy" className="underline">Privatumo politika</a>.
+                  Prenumeruodami, jūs sutinkate su mūsų <Link to="/terms-of-service" className="underline">Naudojimosi taisyklėmis</Link> ir <Link to="/privacy-policy" className="underline">Privatumo politika</Link>.
                 </p>
               </div>
             </div>
