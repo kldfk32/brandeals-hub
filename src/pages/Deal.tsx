@@ -1,17 +1,16 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { deals } from "@/data/deals";
 import { Button } from "@/components/ui/button";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
-import { Copy, Calendar, Tag, Heart } from "lucide-react";
+import { Copy, Calendar, Tag } from "lucide-react";
 import { toast } from "sonner";
 import PromoCard from "@/components/ui/PromoCard";
 
 const Deal = () => {
   const { dealId } = useParams<{ dealId: string }>();
-  const [isSaved, setIsSaved] = useState(false);
   
   const deal = deals.find(d => d.id === dealId);
   
@@ -29,11 +28,6 @@ const Deal = () => {
       navigator.clipboard.writeText(deal.code);
       toast.success("Akcijos kodas nukopijuotas į iškarpinę!");
     }
-  };
-  
-  const handleSave = () => {
-    setIsSaved(!isSaved);
-    toast.success(isSaved ? "Pašalinta iš išsaugotų pasiūlymų" : "Pridėta prie išsaugotų pasiūlymų");
   };
 
   const formatDate = (dateString: string) => {
@@ -76,10 +70,10 @@ const Deal = () => {
             <span className="font-medium">{deal.title}</span>
           </div>
           
-          {/* Deal Detail Section - FIXED: Changed layout for better image/content separation */}
+          {/* Deal Detail Section */}
           <div className="glass-card bg-white/95 rounded-2xl overflow-hidden shadow-elevated">
             <div className="flex flex-col lg:flex-row">
-              {/* Image Container - Fixed position and size */}
+              {/* Image Container */}
               <div className="lg:w-2/5 relative bg-secondary h-auto">
                 <div className="aspect-[4/3] relative overflow-hidden">
                   <img 
@@ -95,7 +89,7 @@ const Deal = () => {
                 </div>
               </div>
               
-              {/* Content - Fixed padding and positioning */}
+              {/* Content */}
               <div className="lg:w-3/5 p-6 md:p-8 relative">
                 <div className="mb-4">
                   <h3 className="text-lg font-medium text-muted-foreground mb-2">{deal.brand}</h3>
@@ -131,18 +125,10 @@ const Deal = () => {
                       <h3 className="text-sm font-medium text-muted-foreground mb-1">Akcijos kodas:</h3>
                       <div className="inline-block bg-white px-4 py-2 rounded-md font-mono font-medium text-lg">{deal.code}</div>
                     </div>
-                    <div className="flex gap-3">
-                      <Button onClick={handleCopyCode} className="flex items-center gap-2">
+                    <div>
+                      <Button onClick={handleCopyCode} className="flex items-center gap-2 w-full sm:w-auto">
                         <Copy size={16} />
                         <span>Kopijuoti kodą</span>
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        onClick={handleSave} 
-                        className={`flex items-center gap-2 ${isSaved ? 'bg-primary/10 text-primary border-primary' : ''}`}
-                      >
-                        <Heart size={16} className={isSaved ? "fill-primary" : ""} />
-                        <span>{isSaved ? "Išsaugota" : "Išsaugoti"}</span>
                       </Button>
                     </div>
                   </div>

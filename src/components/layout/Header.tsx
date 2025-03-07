@@ -1,3 +1,4 @@
+importtypescript
 import React, { useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Search, ShoppingCart, Menu, X } from "lucide-react";
@@ -57,7 +58,6 @@ const Header = () => {
       { name: "Žaidimai", path: "/category/zaidimai" },
       { name: "Finansai", path: "/category/finansai" },
     ]},
-    { name: "Išsaugoti pasiūlymai", path: "/saved" },
     { name: "Apie mus", path: "/about" },
     { name: "DUK", path: "/faq" },
     { name: "Partneriai", path: "/partners" },
@@ -93,9 +93,6 @@ const Header = () => {
               <Link to="/category/sportas" className="text-sm font-medium hover:text-primary transition-colors">
                 Kategorijos
               </Link>
-              <Link to="/saved" className="text-sm font-medium hover:text-primary transition-colors">
-                Išsaugoti
-              </Link>
             </nav>
           </div>
 
@@ -117,9 +114,6 @@ const Header = () => {
                 <Search className="h-4 w-4" />
               </button>
             </form>
-            <Link to="/saved">
-              <ShoppingCart className="h-5 w-5 text-foreground/70 hover:text-primary transition-colors" />
-            </Link>
           </div>
 
           {/* Mobile Menu & Search */}
@@ -131,9 +125,6 @@ const Header = () => {
             >
               <Search className="h-5 w-5 text-foreground" />
             </button>
-            <Link to="/saved" className="p-2 rounded-full hover:bg-secondary transition-colors">
-              <ShoppingCart className="h-5 w-5 text-foreground" />
-            </Link>
             <button 
               onClick={toggleMenu}
               className="p-2 rounded-full hover:bg-secondary transition-colors"

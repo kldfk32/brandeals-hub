@@ -1,7 +1,7 @@
 
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
-import { Copy, Heart, Share } from "lucide-react";
+import { Copy, Share } from "lucide-react";
 import { toast } from "sonner";
 
 interface PromoCardProps {
@@ -27,20 +27,11 @@ const PromoCard: React.FC<PromoCardProps> = ({
   category,
   featured = false,
 }) => {
-  const [isSaved, setIsSaved] = useState(false);
-  
   const handleCopyCode = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
     navigator.clipboard.writeText(code);
     toast.success("Akcijos kodas nukopijuotas į iškarpinę!");
-  };
-  
-  const handleSave = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-    setIsSaved(!isSaved);
-    toast.success(isSaved ? "Pašalinta iš išsaugotų pasiūlymų" : "Pridėta prie išsaugotų pasiūlymų");
   };
   
   const handleShare = (e: React.MouseEvent) => {
@@ -115,16 +106,6 @@ const PromoCard: React.FC<PromoCardProps> = ({
             
             <div className="flex space-x-2">
               <button
-                onClick={handleSave}
-                className={`p-2 rounded-full ${
-                  isSaved ? 'bg-primary/10 text-primary' : 'bg-secondary text-foreground hover:bg-primary/10'
-                } transition-colors`}
-                aria-label={isSaved ? "Pašalinti iš išsaugotų" : "Išsaugoti pasiūlymą"}
-              >
-                <Heart size={18} className={isSaved ? "fill-primary" : ""} />
-              </button>
-              
-              <button
                 onClick={handleShare}
                 className="p-2 rounded-full bg-secondary text-foreground hover:bg-primary/10 transition-colors"
                 aria-label="Dalintis pasiūlymu"
@@ -140,4 +121,3 @@ const PromoCard: React.FC<PromoCardProps> = ({
 };
 
 export default PromoCard;
-
