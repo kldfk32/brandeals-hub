@@ -1,148 +1,239 @@
 
 import React, { useEffect } from "react";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
-import { Button } from "@/components/ui/button";
-import { CheckCircle } from "lucide-react";
+import { Layout } from "@/components/layout/Layout";
+import { Link } from "react-router-dom";
+import { Check } from "lucide-react";
 
 const Partners = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const benefits = [
-    "Prieiga prie didelio vartotojų skaičiaus, ieškančių nuolaidų",
-    "Galimybė didinti pardavimus ir pritraukti naujus klientus",
-    "Prekės ženklo matomumo didinimas",
-    "Išskirtinės partnerystės galimybės",
-    "Detalios analitikos ataskaitos",
-    "Asmeninis vadybininkas Jūsų sėkmei užtikrinti",
+  const benefitsList = [
+    "Padidinkite savo prekių ar paslaugų matomumą",
+    "Pritraukite naujų klientų",
+    "Padidinkite savo e-parduotuvės lankytojų srautą",
+    "Padidinkite pardavimų konversijos rodiklius",
+    "Sustiprinkite savo prekės ženklo žinomumą",
+    "Kurkite lojalumo programas su unikaliais kodais"
   ];
 
-  const partnerTypes = [
+  const partnerOptions = [
     {
-      title: "Prekių ženklams",
-      description: "Reklamuokite savo produktus ir pasiūlymus didžiausioje nuolaidų platformoje Lietuvoje",
-      features: [
-        "Specialūs pardavėjo profiliai",
-        "Pasiūlymų viešinimas",
-        "Naujų vartotojų pritraukimas",
-        "Detalios analitikos ataskaitos",
+      title: "Prekės ženklai",
+      description: "Esate prekės ženklas ar e-parduotuvė? Pritraukite naujus klientus su mūsų platformos pagalba.",
+      benefits: [
+        "Padidinkite pardavimus su specialiais pasiūlymais",
+        "Pasiekite tikslinę auditoriją",
+        "Valdykite savo pasiūlymus per partnerių portalą",
+        "Gaukite išsamias pardavimų ataskaitas",
+        "Individualus bendradarbiavimo modelis"
       ]
     },
     {
-      title: "Influenceriams",
-      description: "Uždirbkite dalindamiesi savo sekėjams naudingais pasiūlymais ir akcijų kodais",
-      features: [
-        "Patrauklūs komisiniai už pardavimus",
-        "Individualūs nuolaidų kodai",
-        "Paprastai sekamas konversijų skaičius",
-        "Reguliarūs mokėjimai",
-      ]
-    },
-    {
-      title: "Reklamos tinklams",
-      description: "Bendradarbiaukite su mumis siekdami sukurti naudingų partnerysčių ekosistemą",
-      features: [
-        "API prieiga",
-        "Balti ženklinimo sprendimai",
-        "Pritaikyti nuolaidų kodai",
-        "Detalios ataskaitos realiu laiku",
+      title: "Influentseriai",
+      description: "Esate influentseris ar turinio kūrėjas? Kurkite papildomą pajamų srautą su mūsų affiliate programa.",
+      benefits: [
+        "Pasiūlykite savo sekėjams išskirtines nuolaidas",
+        "Uždirbkite komisinį atlygį nuo pardavimų",
+        "Sekite savo rezultatus realiu laiku",
+        "Pritaikykite pasiūlymus savo auditorijai",
+        "Gaukite pagalbą kuriant efektyvią strategiją"
       ]
     }
   ];
 
   return (
-    <div className="min-h-screen page-transition">
-      <Header />
-      
-      <main className="pt-24 pb-16">
-        {/* Hero */}
-        <section className="pb-20 pt-10 relative">
-          <div className="container-custom">
-            <div className="max-w-3xl">
-              <h1 className="text-3xl md:text-5xl font-bold leading-tight mb-6">
-                Tapkite mūsų partneriu ir auginkite verslą kartu
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8">
-                Prisijunkite prie Lietuvos didžiausios nuolaidų platformos ir pasiekite tūkstančius vartotojų, 
-                ieškančių geriausių pasiūlymų. Mes siūlome individualius sprendimus prekių ženklams, 
-                influenceriams ir reklamos tinklams.
+    <Layout>
+      <div className="pt-32 pb-20">
+        <div className="container-custom">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <h1 className="text-3xl md:text-4xl font-bold mb-5">Partnerystės programa</h1>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                Prisijunkite prie BrandDeals partnerystės programos ir padidinkite savo prekės ženklo matomumą 
+                bei pardavimus. Mūsų platforma siūlo įvairias bendradarbiavimo galimybes tiek prekių ženklams, 
+                tiek influenteriams.
               </p>
-              <Button size="lg" className="font-medium">
-                Susisiekite dabar
-              </Button>
             </div>
-          </div>
-        </section>
-        
-        {/* Benefits */}
-        <section className="py-16 bg-secondary">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold text-center mb-12">Partnerystės privalumai</h2>
             
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-4 p-6 bg-white rounded-lg shadow-sm">
-                  <CheckCircle className="h-6 w-6 text-primary flex-shrink-0" />
-                  <p className="font-medium">{benefit}</p>
+            {/* Benefits Section */}
+            <div className="mb-16">
+              <h2 className="text-2xl font-bold mb-8 text-center">Kodėl verta bendradarbiauti su BrandDeals?</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="bg-secondary/60 rounded-2xl p-8">
+                  <h3 className="text-xl font-semibold mb-4">Nauda bendradarbiaujant su mumis</h3>
+                  <ul className="space-y-3">
+                    {benefitsList.map((benefit, index) => (
+                      <li key={index} className="flex items-start">
+                        <Check className="h-5 w-5 text-primary shrink-0 mt-0.5 mr-3" />
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-              ))}
+                
+                <div className="bg-primary/10 rounded-2xl p-8">
+                  <h3 className="text-xl font-semibold mb-4">Mūsų platformos privalumai</h3>
+                  <ul className="space-y-5">
+                    <li className="flex flex-col">
+                      <span className="font-medium mb-1">🚀 Didelė auditorija</span>
+                      <span className="text-sm text-muted-foreground">Pasiekite tūkstančius potencialių klientų, aktyviai ieškančių gerų pasiūlymų.</span>
+                    </li>
+                    <li className="flex flex-col">
+                      <span className="font-medium mb-1">📊 Detalios ataskaitos</span>
+                      <span className="text-sm text-muted-foreground">Gaukite išsamias pardavimų ir konversijų ataskaitas.</span>
+                    </li>
+                    <li className="flex flex-col">
+                      <span className="font-medium mb-1">⚙️ Lankstūs bendradarbiavimo modeliai</span>
+                      <span className="text-sm text-muted-foreground">Pritaikome bendradarbiavimo sąlygas pagal jūsų poreikius.</span>
+                    </li>
+                    <li className="flex flex-col">
+                      <span className="font-medium mb-1">🤝 Asmeninis vadybininkas</span>
+                      <span className="text-sm text-muted-foreground">Kiekvienas partneris gauna asmeninį vadybininką.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </section>
-        
-        {/* Partner Types */}
-        <section className="py-16">
-          <div className="container-custom">
-            <h2 className="text-3xl font-bold text-center mb-4">Mūsų sprendimai</h2>
-            <p className="text-muted-foreground text-center max-w-2xl mx-auto mb-12">
-              Siūlome skirtingus bendradarbiavimo modelius, pritaikytus kiekvieno partnerio poreikiams
-            </p>
             
-            <div className="grid md:grid-cols-3 gap-8">
-              {partnerTypes.map((type, index) => (
-                <div key={index} className="glass-card bg-white/95 rounded-xl p-6 shadow-elevated h-full flex flex-col">
-                  <h3 className="text-xl font-bold mb-4">{type.title}</h3>
-                  <p className="text-muted-foreground mb-6">{type.description}</p>
-                  
-                  <div className="mt-auto">
-                    <h4 className="font-semibold mb-3">Privalumai:</h4>
-                    <ul className="space-y-2">
-                      {type.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-center space-x-2">
-                          <CheckCircle className="h-4 w-4 text-primary flex-shrink-0" />
-                          <span className="text-sm">{feature}</span>
+            {/* Partner Options */}
+            <div className="mb-16">
+              <h2 className="text-2xl font-bold mb-8 text-center">Bendradarbiavimo galimybės</h2>
+              
+              <div className="grid md:grid-cols-2 gap-8">
+                {partnerOptions.map((option, index) => (
+                  <div key={index} className="glass-card rounded-2xl p-8 border border-border">
+                    <h3 className="text-xl font-semibold mb-3">{option.title}</h3>
+                    <p className="text-muted-foreground mb-5">{option.description}</p>
+                    
+                    <h4 className="text-sm font-medium uppercase text-primary/80 mb-3">Privalumai</h4>
+                    <ul className="space-y-2 mb-6">
+                      {option.benefits.map((benefit, i) => (
+                        <li key={i} className="flex items-start">
+                          <Check className="h-4 w-4 text-primary shrink-0 mt-1 mr-2" />
+                          <span className="text-sm">{benefit}</span>
                         </li>
                       ))}
                     </ul>
-                    
-                    <Button variant="outline" className="w-full mt-6">Sužinoti daugiau</Button>
                   </div>
+                ))}
+              </div>
+            </div>
+            
+            {/* How to Join Section */}
+            <div className="mb-16">
+              <h2 className="text-2xl font-bold mb-8 text-center">Kaip prisijungti?</h2>
+              
+              <div className="glass-card rounded-2xl p-8 border border-border">
+                <div className="max-w-2xl mx-auto">
+                  <ol className="relative space-y-8 pl-8 before:content-[''] before:absolute before:top-3 before:left-3 before:bottom-3 before:w-[2px] before:bg-border">
+                    <li className="relative pl-8">
+                      <div className="absolute left-0 top-2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">1</div>
+                      <h3 className="font-medium mb-1">Susisiekite su mumis</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Parašykite mums el. paštu <a href="mailto:info@brandeals.lt" className="text-primary hover:underline">info@brandeals.lt</a> arba
+                        užpildykite užklausos formą žemiau.
+                      </p>
+                    </li>
+                    <li className="relative pl-8">
+                      <div className="absolute left-0 top-2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">2</div>
+                      <h3 className="font-medium mb-1">Aptarkime sąlygas</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Mūsų partnerystės vadybininkas susisieks su jumis ir aptars bendradarbiavimo galimybes bei sąlygas.
+                      </p>
+                    </li>
+                    <li className="relative pl-8">
+                      <div className="absolute left-0 top-2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">3</div>
+                      <h3 className="font-medium mb-1">Pasirašykime sutartį</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Suderinus visas sąlygas, pasirašome bendradarbiavimo sutartį ir nustatome partnerystės parametrus.
+                      </p>
+                    </li>
+                    <li className="relative pl-8">
+                      <div className="absolute left-0 top-2 transform -translate-x-1/2 w-6 h-6 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">4</div>
+                      <h3 className="font-medium mb-1">Pradėkime bendradarbiauti</h3>
+                      <p className="text-sm text-muted-foreground">
+                        Jūsų pasiūlymai publikuojami mūsų platformoje ir pradeda generuoti pardavimus!
+                      </p>
+                    </li>
+                  </ol>
                 </div>
-              ))}
+              </div>
+            </div>
+            
+            {/* Contact Form */}
+            <div>
+              <h2 className="text-2xl font-bold mb-8 text-center">Susidomėjote? Susisiekite su mumis</h2>
+              
+              <div className="glass-card rounded-2xl p-8 border border-border">
+                <form className="max-w-2xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium">Vardas</label>
+                    <input 
+                      type="text" 
+                      id="name" 
+                      placeholder="Jūsų vardas"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none bg-background"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="company" className="text-sm font-medium">Įmonė / Prekės ženklas</label>
+                    <input 
+                      type="text" 
+                      id="company" 
+                      placeholder="Jūsų įmonė ar prekės ženklas"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none bg-background"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium">El. paštas</label>
+                    <input 
+                      type="email" 
+                      id="email" 
+                      placeholder="jusu.pastas@example.com"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none bg-background"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="phone" className="text-sm font-medium">Telefonas</label>
+                    <input 
+                      type="tel" 
+                      id="phone" 
+                      placeholder="+370 600 00000"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none bg-background"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2 md:col-span-2">
+                    <label htmlFor="message" className="text-sm font-medium">Žinutė</label>
+                    <textarea 
+                      id="message" 
+                      rows={4}
+                      placeholder="Apibūdinkite savo prekės ženklą ir ko tikitės iš bendradarbiavimo"
+                      className="w-full px-4 py-3 rounded-lg border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none bg-background"
+                    ></textarea>
+                  </div>
+                  
+                  <div className="md:col-span-2 pt-4">
+                    <button 
+                      type="submit"
+                      className="button-primary w-full md:w-auto"
+                    >
+                      Siųsti užklausą
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
-        </section>
-        
-        {/* CTA */}
-        <section className="py-16 bg-primary/10 rounded-3xl mx-4 md:mx-8 lg:mx-16 my-12">
-          <div className="container-custom text-center">
-            <h2 className="text-3xl font-bold mb-4">Pasiruošę pradėti?</h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              Mūsų partnerystės komanda pasiruošusi aptarti jūsų poreikius ir pasiūlyti 
-              tinkamiausią bendradarbiavimo modelį. Susisiekite su mumis šiandien!
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <Button size="lg">Susisiekti</Button>
-              <Button variant="outline" size="lg">Sužinoti daugiau</Button>
-            </div>
-          </div>
-        </section>
-      </main>
-      
-      <Footer />
-    </div>
+        </div>
+      </div>
+    </Layout>
   );
 };
 

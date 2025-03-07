@@ -14,6 +14,7 @@ import Deal from "./pages/Deal";
 import FAQ from "./pages/FAQ";
 import Partners from "./pages/Partners";
 import NotFound from "./pages/NotFound";
+import AllDeals from "./pages/AllDeals";
 
 const queryClient = new QueryClient();
 
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/saved" element={<SavedDeals />} />
             <Route path="/search" element={<SearchResults />} />
+            <Route path="/all-deals" element={<AllDeals />} />
             <Route path="/category/:slug" element={<Category />} />
             <Route path="/deal/:dealId" element={<Deal />} />
             <Route path="/about" element={<AboutUs />} />

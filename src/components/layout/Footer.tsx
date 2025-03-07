@@ -1,3 +1,4 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -21,15 +22,13 @@ const Footer = () => {
       links: [
         { name: "Apie mus", path: "/about" },
         { name: "Kontaktai", path: "/contact" },
-        { name: "Karjera", path: "/careers" },
         { name: "Partneriai", path: "/partners" },
       ],
     },
     {
-      title: "Pagalba",
+      title: "Informacija",
       links: [
         { name: "DUK", path: "/faq" },
-        { name: "Kaip tai veikia", path: "/how-it-works" },
         { name: "Privatumo politika", path: "/privacy-policy" },
         { name: "Naudojimosi taisyklės", path: "/terms-of-service" },
       ],
@@ -47,6 +46,9 @@ const Footer = () => {
             <p className="text-muted-foreground mb-6 max-w-md">
               Atraskite geriausias nuolaidas ir akcijų kodus iš jūsų mėgstamiausių prekių ženklų ir
               influentserių, viskas vienoje vietoje.
+            </p>
+            <p className="text-muted-foreground mb-6">
+              El. paštas: <a href="mailto:info@brandeals.lt" className="text-primary hover:underline">info@brandeals.lt</a>
             </p>
             <div className="flex space-x-4">
               <a href="#" className="h-10 w-10 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors">
@@ -89,7 +91,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-border/40">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-muted-foreground text-sm">
-              &copy; {currentYear} NUOLAIDOS. Visos teisės saugomos.
+              &copy; {currentYear} BRANDEALS. Visos teisės saugomos.
             </p>
             <div className="mt-4 md:mt-0 flex space-x-6">
               <Link to="/privacy-policy" className="text-sm text-muted-foreground hover:text-foreground">

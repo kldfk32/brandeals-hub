@@ -1,8 +1,6 @@
 
 import React, { useEffect } from "react";
-import { motion } from "framer-motion";
-import Header from "@/components/layout/Header";
-import Footer from "@/components/layout/Footer";
+import { Layout } from "@/components/layout/Layout";
 
 const AboutUs = () => {
   useEffect(() => {
@@ -10,61 +8,74 @@ const AboutUs = () => {
   }, []);
 
   return (
-    <div className="min-h-screen page-transition">
-      <Header />
-      
-      <main>
-        <section className="pt-32 pb-20">
-          <div className="container-custom">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-3xl mx-auto"
-            >
-              <h1 className="text-4xl sm:text-5xl font-bold mb-8 tracking-tight">
-                Apie Mus
-              </h1>
+    <Layout>
+      <div className="pt-32 pb-20">
+        <div className="container-custom">
+          <div className="max-w-4xl mx-auto">
+            <h1 className="text-3xl md:text-4xl font-bold mb-8">Apie mus</h1>
+            
+            <div className="prose prose-lg max-w-none">
+              <p className="text-lg text-muted-foreground mb-6">
+                <strong>BrandDeals</strong> yra Lietuvos platforma, kurioje rasite geriausius pasiūlymus, 
+                akcijas ir nuolaidų kodus iš populiariausių prekių ženklų ir influentserių. 
+                Mūsų misija – padėti vartotojams sutaupyti, o prekių ženklams pritraukti naujų klientų.
+              </p>
               
-              <div className="prose prose-lg max-w-none">
-                <p className="text-xl mb-6">
-                  Mes esame profesionalų komanda, kuri kasdien seka socialinių tinklų naujienas ir teikia geriausius pasiūlymus mūsų vartotojams.
-                </p>
-                
-                <p className="mb-6">
-                  Mūsų tikslas – padėti Jums sutaupyti pinigų, pateikiant naujausius ir geriausius nuolaidų kodus, akcijas ir pasiūlymus iš populiariausių prekės ženklų visoje Lietuvoje.
-                </p>
-                
-                <p className="mb-6">
-                  Kiekvieną dieną mes kruopščiai peržiūrime šimtus prekės ženklų, parduotuvių ir socialinių tinklų, kad rastume geriausius pasiūlymus ir galėtume juos pateikti Jums patogiu būdu. Mūsų komanda tikrina visus nuolaidų kodus, kad įsitikintų, jog jie veikia ir galioja.
-                </p>
-                
-                <h2 className="text-2xl font-bold mt-10 mb-4">Mūsų misija</h2>
-                
-                <p className="mb-6">
-                  Mūsų misija yra paprasta – padėti žmonėms sutaupyti pinigų perkant jiems reikalingus produktus ir paslaugas. Mes tikime, kad geriausios nuolaidos turėtų būti prieinamos visiems, o ne tik tiems, kurie turi laiko jų ieškoti.
-                </p>
-                
-                <h2 className="text-2xl font-bold mt-10 mb-4">Mūsų vertybės</h2>
-                
-                <ul className="list-disc pl-6 mb-6">
-                  <li className="mb-2">Skaidrumas – mes visada atvirai pateikiame informaciją apie nuolaidas ir akcijas.</li>
-                  <li className="mb-2">Patikimumas – mes tikriname visus nuolaidų kodus, kad būtume tikri, jog jie veikia.</li>
-                  <li className="mb-2">Aktualumas – mes nuolat atnaujiname pasiūlymus, kad jie visada būtų aktualūs.</li>
-                  <li className="mb-2">Vartotojo patirtis – mes siekiame, kad mūsų svetainė būtų patogi ir lengva naudotis.</li>
-                </ul>
-                
-                <p className="mb-6">
-                  Dėkojame, kad naudojatės mūsų paslaugomis, ir tikimės, kad rasite puikių pasiūlymų, kurie padės jums sutaupyti!
-                </p>
-              </div>
-            </motion.div>
+              <h2 className="text-2xl font-bold mt-10 mb-4">Mūsų istorija</h2>
+              <p className="mb-6">
+                BrandDeals buvo įkurta 2022 metais, kai pastebėjome, kad Lietuvos rinkoje trūksta 
+                patikimos platformos, kurioje vartotojai galėtų rasti visus aktualiausius pasiūlymus 
+                vienoje vietoje. Mūsų komanda, turinti ilgametę patirtį e-komercijos srityje, 
+                nusprendė sukurti platformą, kuri būtų naudinga tiek vartotojams, tiek prekių ženklams.
+              </p>
+              
+              <h2 className="text-2xl font-bold mt-10 mb-4">Mūsų vertybės</h2>
+              <ul className="space-y-3 mb-8">
+                <li className="flex items-start">
+                  <span className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 mt-0.5">1</span>
+                  <span><strong>Patikimumas</strong> – mes tikriname ir vertiname kiekvieną pasiūlymą, kad užtikrintume jo tikrumą.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 mt-0.5">2</span>
+                  <span><strong>Skaidrumas</strong> – mūsų platformoje aiškiai nurodome visas pasiūlymų sąlygas ir apribojimus.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 mt-0.5">3</span>
+                  <span><strong>Vartotojų patogumas</strong> – nuolat tobuliname platformą, kad pasiūlymų paieška būtų kuo patogesnė.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="h-6 w-6 rounded-full bg-primary/10 text-primary flex items-center justify-center mr-3 mt-0.5">4</span>
+                  <span><strong>Partnerystė</strong> – kuriame ilgalaikius santykius su prekių ženklais ir influentseriais.</span>
+                </li>
+              </ul>
+              
+              <h2 className="text-2xl font-bold mt-10 mb-4">Kaip tai veikia?</h2>
+              <p className="mb-6">
+                BrandDeals platformoje surenkame ir pateikiame geriausius pasiūlymus iš įvairių prekių ženklų ir 
+                influentserių. Bendradarbiaujame su prekių ženklais tiesiogiai, taip pat naudojame affiliate marketingo 
+                partnerystės programas, kad galėtume pateikti geriausius ir naujausius pasiūlymus mūsų vartotojams.
+              </p>
+              <p className="mb-6">
+                Kai vartotojas pasinaudoja pasiūlymu per mūsų platformą, mes gauname komisinį atlygį iš prekės ženklo. 
+                Tai leidžia mums užtikrinti, kad mūsų paslaugos vartotojams būtų nemokamos, o kartu padėti prekių ženklams
+                pasiekti naujus klientus.
+              </p>
+              
+              <h2 className="text-2xl font-bold mt-10 mb-4">Susisiekite su mumis</h2>
+              <p className="mb-6">
+                Turite klausimų ar pasiūlymų? Susisiekite su mumis elektroniniu paštu:
+                <a href="mailto:info@brandeals.lt" className="text-primary hover:underline ml-1">info@brandeals.lt</a>
+              </p>
+              <p>
+                Jei esate prekės ženklas ar influenceris ir norite bendradarbiauti, daugiau informacijos rasite 
+                <a href="/partners" className="text-primary hover:underline mx-1">Partneriai</a> 
+                puslapyje.
+              </p>
+            </div>
           </div>
-        </section>
-      </main>
-      
-      <Footer />
-    </div>
+        </div>
+      </div>
+    </Layout>
   );
 };
 

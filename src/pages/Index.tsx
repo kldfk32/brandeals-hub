@@ -52,8 +52,8 @@ const Index = () => {
                   Patys naujausi pasiūlymai, kuriuos ką tik pridėjome į mūsų svetainę.
                 </p>
               </div>
-              <Link to="/newest" className="mt-4 md:mt-0 button-outline">
-                Visi naujausi pasiūlymai
+              <Link to="/all-deals" className="mt-4 md:mt-0 button-outline">
+                Visi pasiūlymai
               </Link>
             </div>
             
