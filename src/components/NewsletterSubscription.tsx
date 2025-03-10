@@ -46,37 +46,6 @@ const NewsletterSubscription = () => {
     setEmail("");
   };
 
-  // Function to download emails as a text file
-  const downloadEmailsAsTxt = () => {
-    if (subscribedEmails.length === 0) {
-      toast({
-        title: "Informacija",
-        description: "Nėra prenumeratorių el. paštų adresų",
-      });
-      return;
-    }
-
-    const emailsText = subscribedEmails.join("\n");
-    const blob = new Blob([emailsText], { type: "text/plain" });
-    const url = URL.createObjectURL(blob);
-    
-    // Create a temporary link element and trigger download
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "prenumeratoriu-sarasas.txt";
-    document.body.appendChild(a);
-    a.click();
-    
-    // Clean up
-    URL.revokeObjectURL(url);
-    document.body.removeChild(a);
-    
-    toast({
-      title: "Sėkmė!",
-      description: "Prenumeratorių sąrašas sėkmingai atsisiųstas",
-    });
-  };
-
   return (
     <div className="rounded-3xl bg-gradient-to-r from-primary/10 to-primary/20 p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
       <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/20 blur-3xl"></div>
@@ -104,17 +73,6 @@ const NewsletterSubscription = () => {
             Prenumeruoti
           </Button>
         </form>
-        
-        {/* Admin button to download emails (normally would be hidden or protected) */}
-        <Button
-          type="button"
-          variant="outline"
-          size="sm"
-          onClick={downloadEmailsAsTxt}
-          className="mb-4"
-        >
-          Atsisiųsti prenumeratorių sąrašą
-        </Button>
         
         <p className="text-xs text-muted-foreground">
           Prenumeruodami, jūs sutinkate su mūsų <Link to="/terms-of-service" className="underline">Naudojimosi taisyklėmis</Link> ir <Link to="/privacy-policy" className="underline">Privatumo politika</Link>.
