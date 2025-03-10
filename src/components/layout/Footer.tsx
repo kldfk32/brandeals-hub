@@ -9,6 +9,7 @@ const Footer = () => {
     {
       title: "Kategorijos",
       links: [
+        { name: "Visos kategorijos", path: "/all-categories" },
         { name: "Sportas", path: "/category/sportas" },
         { name: "Maistas", path: "/category/maistas" },
         { name: "Apranga", path: "/category/apranga" },

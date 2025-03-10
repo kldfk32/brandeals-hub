@@ -50,7 +50,7 @@ const Header = () => {
   const menuItems = [
     { name: "Pagrindinis", path: "/" },
     { name: "Visi pasiūlymai", path: "/all-deals" },
-    { name: "Kategorijos", path: "#", submenu: [
+    { name: "Kategorijos", path: "/all-categories", submenu: [
       { name: "Sportas", path: "/category/sportas" },
       { name: "Maistas", path: "/category/maistas" },
       { name: "Apranga", path: "/category/apranga" },
@@ -64,7 +64,6 @@ const Header = () => {
   ];
 
   return (
-    
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
         isScrolled || isMenuOpen
@@ -90,7 +89,7 @@ const Header = () => {
               <Link to="/all-deals" className="text-sm font-medium hover:text-primary transition-colors">
                 Visi pasiūlymai
               </Link>
-              <Link to="/category/sportas" className="text-sm font-medium hover:text-primary transition-colors">
+              <Link to="/all-categories" className="text-sm font-medium hover:text-primary transition-colors">
                 Kategorijos
               </Link>
             </nav>
@@ -174,7 +173,12 @@ const Header = () => {
               <React.Fragment key={item.name}>
                 {item.submenu ? (
                   <div className="space-y-2">
-                    <div className="font-medium text-sm">{item.name}</div>
+                    <Link 
+                      to={item.path} 
+                      className="block font-medium text-sm hover:text-primary transition-colors"
+                    >
+                      {item.name}
+                    </Link>
                     <div className="pl-4 space-y-2">
                       {item.submenu.map((subItem) => (
                         <Link

@@ -10,6 +10,7 @@ import SavedDeals from "./pages/SavedDeals";
 import SearchResults from "./pages/SearchResults";
 import AboutUs from "./pages/AboutUs";
 import Category from "./pages/Category";
+import AllCategories from "./pages/AllCategories";
 import Deal from "./pages/Deal";
 import FAQ from "./pages/FAQ";
 import Partners from "./pages/Partners";
@@ -33,6 +34,7 @@ const App = () => (
             <Route path="/saved" element={<SavedDeals />} />
             <Route path="/search" element={<SearchResults />} />
             <Route path="/all-deals" element={<AllDeals />} />
+            <Route path="/all-categories" element={<AllCategories />} />
             <Route path="/category/:slug" element={<Category />} />
             <Route path="/deal/:dealId" element={<Deal />} />
             <Route path="/about" element={<AboutUs />} />
