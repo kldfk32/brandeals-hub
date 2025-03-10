@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import HeroSection from "@/components/sections/HeroSection";
 import FeaturedDeals from "@/components/sections/FeaturedDeals";
 import CategorySection from "@/components/sections/CategorySection";
+import NewsletterSubscription from "@/components/NewsletterSubscription";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -95,38 +96,10 @@ const Index = () => {
           </div>
         </section>
         
-        {/* CTA Section */}
+        {/* Newsletter Subscription Section */}
         <section className="py-20">
           <div className="container-custom">
-            <div className="rounded-3xl bg-gradient-to-r from-primary/10 to-primary/20 p-8 md:p-12 lg:p-16 text-center relative overflow-hidden">
-              <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-primary/20 blur-3xl"></div>
-              <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-primary/20 blur-3xl"></div>
-              
-              <div className="relative z-10 max-w-3xl mx-auto">
-                <h2 className="text-3xl md:text-4xl font-bold mb-6">Nepražiopsokite nė vieno pasiūlymo</h2>
-                <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-                  Užsiregistruokite mūsų naujienlaiškiui ir gaukite naujausius pasiūlymus tiesiai į savo pašto dėžutę.
-                </p>
-                
-                <form className="max-w-md mx-auto flex flex-col sm:flex-row gap-3">
-                  <input 
-                    type="email" 
-                    placeholder="Įveskite savo el. paštą" 
-                    className="flex-1 px-4 py-3 rounded-lg bg-white border border-border focus:border-primary focus:ring-1 focus:ring-primary transition-all outline-none"
-                  />
-                  <button
-                    type="submit"
-                    className="button-primary px-6 py-3 whitespace-nowrap"
-                  >
-                    Prenumeruoti
-                  </button>
-                </form>
-                
-                <p className="text-xs text-muted-foreground mt-4">
-                  Prenumeruodami, jūs sutinkate su mūsų <Link to="/terms-of-service" className="underline">Naudojimosi taisyklėmis</Link> ir <Link to="/privacy-policy" className="underline">Privatumo politika</Link>.
-                </p>
-              </div>
-            </div>
+            <NewsletterSubscription />
           </div>
         </section>
       </main>
