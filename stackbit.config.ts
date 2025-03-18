@@ -1,4 +1,7 @@
 npm install -g @stackbit/cli
+npm install netlify-cli
+
+
 import { GitContentSource } from '@stackbit/cms-git';
 import { defineStackbitConfig } from '@stackbit/types';
 import { allModels } from './.stackbit/models';
