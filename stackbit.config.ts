@@ -1,3 +1,4 @@
+npm install --save-dev @stackbit/types @stackbit/sdk
 import { ContentfulContentSource } from '@stackbit/cms-contentful';
 import { defineStackbitConfig } from '@stackbit/types';
 
