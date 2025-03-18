@@ -1,3 +1,4 @@
+npm install -g @stackbit/cli
 import { GitContentSource } from '@stackbit/cms-git';
 import { defineStackbitConfig } from '@stackbit/types';
 import { allModels } from './.stackbit/models';
