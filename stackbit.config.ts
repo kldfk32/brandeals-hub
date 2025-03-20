@@ -1,15 +1,8 @@
-npm install -g @stackbit/cli
-npm install netlify-cli
-
-
-import { GitContentSource } from '@stackbit/cms-git';
-import { defineStackbitConfig } from '@stackbit/types';
-import { allModels } from './.stackbit/models';
+const { GitContentSource } = require('@stackbit/cms-git');
 
 const gitContentSource = new GitContentSource({
     rootPath: __dirname,
     contentDirs: ['content'],
-    models: Object.values(allModels),
     assetsConfig: {
         referenceType: 'static',
         staticDir: 'public',
@@ -18,16 +11,10 @@ const gitContentSource = new GitContentSource({
     }
 });
 
-export const sbConfig = defineStackbitConfig({
+module.exports = {
     stackbitVersion: '~0.7.0',
     ssgName: 'nextjs',
     nodeVersion: '18',
     contentSources: [gitContentSource],
-    presetSource: {
-        type: 'files',
-        presetDirs: ['.stackbit/presets']
-    },
-    styleObjectModelName: 'ThemeStyle'
-});
-
-export default sbConfig;
+    devServerUrl: 'http://localhost:8080'
+};
