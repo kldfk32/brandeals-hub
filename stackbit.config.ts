@@ -1,4 +1,4 @@
-import { defineStackbitConfig } from "@stackbit/types";
+import { defineStackbitConfig, SiteMapEntry } from "@stackbit/types";
 import { GitContentSource } from "@stackbit/cms-git";
 
 export default defineStackbitConfig({
@@ -7,23 +7,22 @@ export default defineStackbitConfig({
       rootPath: __dirname,
       contentDirs: ["content"],
       models: [
-        // General Pages (Home, About, Contact)
+        // General pages (static URLs)
         {
           name: "Page",
-          type: "page", // Distinguish as a page model
+          type: "page",
           urlPath: "/{slug}",
           filePath: "content/pages/{slug}.json",
           fields: [
             { name: "title", type: "string", required: true },
-            { name: "description", type: "string", required: false },
             { name: "content", type: "markdown", required: false }
           ]
         },
 
-        // Promo Code Listing Page (All Deals)
+        // Promo Deals Listing Pages
         {
           name: "PromoPage",
-          type: "page", // Distinguish as a page model
+          type: "page",
           urlPath: "/deals/{slug}",
           filePath: "content/deals/{slug}.json",
           fields: [
@@ -34,7 +33,19 @@ export default defineStackbitConfig({
           ]
         },
 
-        // Promo Code Model (Not a page, just data)
+        // Category Pages (Dynamic URLs)
+        {
+          name: "CategoryPage",
+          type: "page",
+          urlPath: "/category/{slug}",
+          filePath: "content/categories/{slug}.json",
+          fields: [
+            { name: "name", type: "string", required: true },
+            { name: "icon", type: "image", required: false }
+          ]
+        },
+
+        // Promo Code (Not a page, just data)
         {
           name: "PromoCode",
           type: "data",
@@ -53,6 +64,42 @@ export default defineStackbitConfig({
         }
       ]
     })
-  ]
+  ],
+
+  // SiteMap function to define custom URL paths
+  siteMap: ({ documents, models }) => {
+    return documents
+      .map((document) => {
+        switch (document.modelName) {
+          case "Page":
+            return {
+              stableId: document.id,
+              urlPath: `/${document.slug}`,
+              document,
+              isHomePage: document.slug === "index" // Detect if it's the homepage
+            };
+
+          case "PromoPage":
+            return {
+              stableId: document.id,
+              urlPath: `/deals/${document.slug}`,
+              document,
+              isHomePage: false
+            };
+
+          case "CategoryPage":
+            return {
+              stableId: document.id,
+              urlPath: `/category/${document.slug}`,
+              document,
+              isHomePage: false
+            };
+
+          default:
+            return null;
+        }
+      })
+      .filter(Boolean) as SiteMapEntry[];
+  }
 });
 
