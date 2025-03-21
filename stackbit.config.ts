@@ -7,10 +7,10 @@ export default defineStackbitConfig({
       rootPath: __dirname,
       contentDirs: ["content"],
       models: [
-        // Pages (Home, About, Contact)
+        // General Pages (Home, About, Contact)
         {
           name: "Page",
-          type: "page",
+          type: "page", // Distinguish as a page model
           urlPath: "/{slug}",
           filePath: "content/pages/{slug}.json",
           fields: [
@@ -20,7 +20,21 @@ export default defineStackbitConfig({
           ]
         },
 
-        // Promo Code Model
+        // Promo Code Listing Page (All Deals)
+        {
+          name: "PromoPage",
+          type: "page", // Distinguish as a page model
+          urlPath: "/deals/{slug}",
+          filePath: "content/deals/{slug}.json",
+          fields: [
+            { name: "title", type: "string", required: true },
+            { name: "category", type: "reference", models: ["Category"], required: true },
+            { name: "featuredImage", type: "image", required: false },
+            { name: "content", type: "markdown", required: false }
+          ]
+        },
+
+        // Promo Code Model (Not a page, just data)
         {
           name: "PromoCode",
           type: "data",
@@ -36,31 +50,9 @@ export default defineStackbitConfig({
             { name: "link", type: "string", required: true },
             { name: "verified", type: "boolean", required: true, default: true }
           ]
-        },
-
-        // Brand Model
-        {
-          name: "Brand",
-          type: "data",
-          filePath: "content/brands/{slug}.json",
-          fields: [
-            { name: "name", type: "string", required: true },
-            { name: "logo", type: "image", required: false },
-            { name: "website", type: "string", required: false }
-          ]
-        },
-
-        // Category Model
-        {
-          name: "Category",
-          type: "data",
-          filePath: "content/categories/{slug}.json",
-          fields: [
-            { name: "name", type: "string", required: true },
-            { name: "icon", type: "image", required: false }
-          ]
         }
       ]
     })
   ]
 });
+
